@@ -13,6 +13,10 @@ export default function useBills() {
         .catch(() => setError("Erro ao carregar"))
         .finally(() => setLoading(false))
     }, [])
+
+    function markAsPaid (id: string) {
+        setBills((state) => state.map((bill) => (bill.id === id ? {...bill, isPaid: true} : bill)))
+    }
     
-    return { bills, error, loading}
+    return { bills, error, loading, markAsPaid}
 }
