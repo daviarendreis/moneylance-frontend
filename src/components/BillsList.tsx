@@ -6,6 +6,7 @@ interface BillsListProps {
 }
 
 export default function BillsList ({bills, markAsPaid}: BillsListProps) {
+    if (bills.length === 0) return <p>Nenhuma conta cadastrada</p>
     return (
         <ul>
             {bills.map(bill => (
