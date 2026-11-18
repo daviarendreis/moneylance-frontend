@@ -3,5 +3,4 @@ export interface Category {
     name: string
     icon:string | null
     isDefault: boolean
-    userId: string | null
 }
