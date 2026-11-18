@@ -5,8 +5,6 @@ export interface Transaction {
     description: string
     amount: number
     type: TransactionsType
-    destination: string | null
-    bank: string | null
     createdAt: string
     categoryId: string
 }

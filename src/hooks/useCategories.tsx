@@ -10,9 +10,9 @@ export default function useCategories () {
     useEffect(() => {
         getCategories()
         .then((data) => setCategories(data))
-        .catch(() => setError("Eero ao Carregar"))
+        .catch(() => setError("Erro ao Carregar"))
         .finally(() => setLoading(false))
-    })
+    }, [])
 
     return { categories, error, loading }
 }
