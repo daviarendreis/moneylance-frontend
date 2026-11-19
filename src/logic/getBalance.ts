@@ -5,5 +5,5 @@ export default function getBalance (transactions: Transaction[]) {
     ? acc + tr.amount 
     : acc - tr.amount, 
     0)
-    return Math.floor(balance)
+    return balance
 }

@@ -1,10 +1,12 @@
 import AddBillForm from "./components/AddBillForm"
 import AddTransactionForm from "./components/AddTransactionForm"
 import BillsList from "./components/BillsList"
+import ExpensesSummary from "./components/ExpensesSummary"
 import TransactionsList from "./components/TransactionsList"
 import useBills from "./hooks/useBills"
 import useCategories from "./hooks/useCategories"
 import useTransactions from "./hooks/useTransactions"
+import formatCurrency from "./logic/formatCurrency"
 import getBalance from "./logic/getBalance"
 
 function App() {
@@ -22,11 +24,16 @@ function App() {
     <AddBillForm addBill={addBill}/>
 
     <hr />
-    <p><strong>Saldo: {getBalance(transactions)}</strong></p>
+
+    <p><strong>Saldo: {formatCurrency(getBalance(transactions))}</strong></p>
     <br />
     <TransactionsList transactions={transactions}/>
     <br />
     <AddTransactionForm addTransaction={addTransaction} categories={categories}/>
+
+    <hr />
+
+    <ExpensesSummary transactions={transactions} categories={categories}/>
     </>
 )
 }

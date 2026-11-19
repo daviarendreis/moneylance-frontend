@@ -1,3 +1,4 @@
+import formatCurrency from "../logic/formatCurrency";
 import type { Bill } from "../types/bill";
 
 interface BillsListProps {
@@ -12,7 +13,7 @@ export default function BillsList ({bills, markAsPaid}: BillsListProps) {
             {bills.map(bill => (
                 <li key={bill.id}>
                     <span>{bill.description} - 
-                          {bill.amount} - 
+                          {formatCurrency(bill.amount)} - 
                           {bill.isPaid ? "Paga" : "Pendente"} -- 
                           {!bill.isPaid ? <button onClick={() => markAsPaid(bill.id)}>Pagar</button> : null }
                     </span>

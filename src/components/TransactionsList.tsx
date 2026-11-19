@@ -1,3 +1,4 @@
+import formatCurrency from "../logic/formatCurrency";
 import type { Transaction } from "../types/transaction";
 
 interface TransactionsListProps {
@@ -9,7 +10,7 @@ export default function TransactionsList ({ transactions }: TransactionsListProp
         <>
         {transactions.length > 0 ? 
         transactions.map((tr) => (
-            <p key={tr.id}>{tr.description} - {tr.type} - {tr.amount}</p>
+            <p key={tr.id}>{tr.description} - {tr.type} - {formatCurrency(tr.amount)}</p>
         )) : <p>Nenhuma transação registrada</p>}
         </>
     )
