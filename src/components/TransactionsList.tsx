@@ -10,7 +10,7 @@ export default function TransactionsList ({ transactions }: TransactionsListProp
         <>
         {transactions.length > 0 ? 
         transactions.map((tr) => (
-            <p key={tr.id}>{tr.description} - {tr.type} - {formatCurrency(tr.amount)}</p>
+            <p key={tr.id}>{tr.description} - {tr.type === "income" ? "Entrada" : "Saída"} - {formatCurrency(tr.amount)}</p>
         )) : <p>Nenhuma transação registrada</p>}
         </>
     )
