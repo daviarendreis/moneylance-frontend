@@ -5,24 +5,22 @@ interface AddBillFormProps {
     addBill: (newBill: NewBillInput) => void
 }
 
-
-
 export default function AddBillForm({addBill}: AddBillFormProps) {
     const [description, setDescription] = useState<string>("")
     const [amount, setAmount] = useState<number>(0)
     const [dueDate, setDueDate] = useState<string>("")
     const [isRecurring, setIsRecurring] = useState<boolean>(false)
 
-    
-
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
         const newBill: NewBillInput = {
             description,
             amount,
             dueDate,
             isRecurring
         }
-        e.preventDefault()
+
         addBill(newBill)
         setDescription("")
         setAmount(0)
@@ -32,7 +30,7 @@ export default function AddBillForm({addBill}: AddBillFormProps) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="description">Descricao:</label>
+            <label htmlFor="description">Descrição:</label>
             <input type="text" 
             name="description" 
             id="description" 
