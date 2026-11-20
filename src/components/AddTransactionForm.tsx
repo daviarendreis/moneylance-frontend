@@ -91,7 +91,7 @@ export default function AddTransactionForm ({ addTransaction, categories }: AddT
 
             <CategorySelect categories={categories} value={categoryId} onChange={setCategoryId}/>
 
-            <button type="submit" className={`${forms.submit} glass glass--orange`}>Adicionar</button>
+            <button type="submit" className={forms.submit}>Adicionar</button>
         </form>
     )
 }

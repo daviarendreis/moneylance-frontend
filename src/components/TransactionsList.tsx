@@ -30,7 +30,7 @@ export default function TransactionsList ({ transactions }: TransactionsListProp
                 ))}
             </ul>
             {/* Dado fixo: botão ainda sem ação (ver PENDENCIAS.md) */}
-            <button type="button" className={`${styles.moreButton} glass glass--clear`}>Mostrar mais</button>
+            <button type="button" className={styles.moreButton}>Mostrar mais</button>
             </>
         ) : <p className={styles.empty}>Nenhuma transação registrada</p>}
         </>

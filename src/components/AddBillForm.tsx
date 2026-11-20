@@ -81,7 +81,7 @@ export default function AddBillForm({addBill}: AddBillFormProps) {
                 onChange={(e) => setIsRecurring(e.target.checked)}/>
             </label>
 
-            <button type="submit" className={`${forms.submit} glass glass--orange`}>Adicionar</button>
+            <button type="submit" className={forms.submit}>Adicionar</button>
         </form>
     )
 }

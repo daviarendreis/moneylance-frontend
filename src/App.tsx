@@ -6,7 +6,7 @@ import ExpensesSummary from "./components/ExpensesSummary"
 import NextBillCard from "./components/NextBillCard"
 import TransactionsList from "./components/TransactionsList"
 import FabMenu from "./components/ui/FabMenu"
-import GlassCard from "./components/ui/GlassCard"
+import SectionCard from "./components/ui/SectionCard"
 import useBills from "./hooks/useBills"
 import useCategories from "./hooks/useCategories"
 import useTransactions from "./hooks/useTransactions"
@@ -27,7 +27,7 @@ function App() {
     <div className={styles.app}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={`${styles.logo} glass glass--ink`} aria-hidden="true"><span className={styles.logoDot} /></span>
+          <span className={styles.logo} aria-hidden="true"><span className={styles.logoDot} /></span>
           <h1 className={styles.brandName}>MoneyLance</h1>
         </div>
         <span className={styles.month}>{PLACEHOLDER_MONTH}</span>
@@ -42,21 +42,21 @@ function App() {
           <NextBillCard />
         </div>
 
-        <GlassCard title="Últimas transações">
+        <SectionCard title="Últimas transações">
           <TransactionsList transactions={transactions}/>
-        </GlassCard>
+        </SectionCard>
 
-        <GlassCard title="Saldo no mês" subtitle="Como seu dinheiro variou no mês">
+        <SectionCard title="Saldo no mês" subtitle="Como seu dinheiro variou no mês">
           <BalanceChart />
-        </GlassCard>
+        </SectionCard>
 
-        <GlassCard title="Gastos por categoria">
+        <SectionCard title="Gastos por categoria">
           <ExpensesSummary transactions={transactions} categories={categories}/>
-        </GlassCard>
+        </SectionCard>
 
-        <GlassCard title="Contas" subtitle={PLACEHOLDER_BILLS_COUNT}>
+        <SectionCard title="Contas" subtitle={PLACEHOLDER_BILLS_COUNT}>
           <BillsList bills={bills} markAsPaid={markAsPaid}/>
-        </GlassCard>
+        </SectionCard>
       </main>
 
       <FabMenu

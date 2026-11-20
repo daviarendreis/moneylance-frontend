@@ -1,13 +1,13 @@
 import type { ReactNode } from "react"
-import styles from "./GlassCard.module.css"
+import styles from "./SectionCard.module.css"
 
-interface GlassCardProps {
+interface SectionCardProps {
     title?: string
     subtitle?: string
     children: ReactNode
 }
 
-export default function GlassCard({ title, subtitle, children }: GlassCardProps) {
+export default function SectionCard({ title, subtitle, children }: SectionCardProps) {
     return (
         <section className={styles.card}>
             {title ? (

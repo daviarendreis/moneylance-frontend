@@ -21,8 +21,8 @@ export default function BillsList ({bills, markAsPaid}: BillsListProps) {
                         <span className={styles.meta}>{PLACEHOLDER_BILL_DUE}{bill.isRecurring ? " · Todo mês" : ""}</span>
                     </span>
                     {!bill.isPaid
-                        ? <button type="button" className={`${styles.payButton} glass glass--orange`} onClick={() => markAsPaid(bill.id)}>Pagar</button>
-                        : <span className={`${styles.paidBadge} glass glass--blue`}><CheckIcon /> Paga</span>}
+                        ? <button type="button" className={styles.payButton} onClick={() => markAsPaid(bill.id)}>Pagar</button>
+                        : <span className={styles.paidBadge}><CheckIcon /> Paga</span>}
                 </li>
             ))}
         </ul>
