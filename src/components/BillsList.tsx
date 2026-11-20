@@ -1,5 +1,8 @@
 import formatCurrency from "../logic/formatCurrency";
 import type { Bill } from "../types/bill";
+import { CheckIcon } from "./ui/icons";
+import { PLACEHOLDER_BILL_DUE } from "../placeholders/layoutPlaceholders";
+import styles from "./BillsList.module.css";
 
 interface BillsListProps {
     bills: Bill[]
@@ -7,18 +10,20 @@ interface BillsListProps {
 }
 
 export default function BillsList ({bills, markAsPaid}: BillsListProps) {
-    if (bills.length === 0) return <p>Nenhuma conta cadastrada</p>
+    if (bills.length === 0) return <p className={styles.empty}>Nenhuma conta cadastrada</p>
     return (
-        <ul>
+        <ul className={styles.list}>
             {bills.map(bill => (
-                <li key={bill.id}>
-                    <span>{bill.description} - 
-                          {formatCurrency(bill.amount)} - 
-                          {bill.isPaid ? "Paga" : "Pendente"} -- 
-                          {!bill.isPaid ? <button onClick={() => markAsPaid(bill.id)}>Pagar</button> : null }
+                <li key={bill.id} className={`${styles.row} ${bill.isPaid ? styles.paid : ""}`}>
+                    <span className={styles.text}>
+                        <span className={styles.description}>{bill.description}</span>
+                        <span className={`${styles.amount} tabular`}>{formatCurrency(bill.amount)}</span>
+                        <span className={styles.meta}>{PLACEHOLDER_BILL_DUE}{bill.isRecurring ? " · Todo mês" : ""}</span>
                     </span>
+                    {!bill.isPaid
+                        ? <button type="button" className={`${styles.payButton} glass glass--orange`} onClick={() => markAsPaid(bill.id)}>Pagar</button>
+                        : <span className={`${styles.paidBadge} glass glass--blue`}><CheckIcon /> Paga</span>}
                 </li>
-                
             ))}
         </ul>
     )

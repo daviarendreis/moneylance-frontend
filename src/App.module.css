@@ -1,0 +1,108 @@
+.app {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding:
+    calc(env(safe-area-inset-top) + 20px)
+    calc(env(safe-area-inset-right) + var(--gutter))
+    calc(env(safe-area-inset-bottom) + 120px)
+    calc(env(safe-area-inset-left) + var(--gutter));
+}
+
+.status {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+}
+
+.logoDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-expense);
+}
+
+.brandName {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.month {
+  font-size: var(--text-label);
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* Conteúdo */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-section);
+}
+
+.topRow {
+  display: flex;
+  gap: 10px;
+}
+
+.balanceCard {
+  flex: 1.6 1 0;
+  min-width: 0;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px;
+  border-radius: var(--radius-card);
+}
+
+.balanceLabel {
+  font-size: var(--text-label);
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* O tamanho acompanha a largura do card, para o valor nunca quebrar de linha */
+.balanceValue {
+  font-size: clamp(20px, 15.5cqi, 36px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+/* Telas muito estreitas (iPhone SE): saldo e próxima conta empilhados */
+@media (max-width: 359px) {
+  .topRow {
+    flex-direction: column;
+  }
+}

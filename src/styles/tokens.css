@@ -1,0 +1,66 @@
+:root {
+  /* Cores — cena: vidro embaçado numa manhã fria, com sol nascendo */
+  --color-ink: #0e2238;
+  --color-muted: #5a6b7d;
+  --color-placeholder: #8a97a6;
+  --color-line: rgba(14, 34, 56, 0.08);
+  --color-field-border: rgba(14, 34, 56, 0.12);
+
+  --color-sky: #eaf4fc;
+  --color-sky-blob: #7db9ee;
+  --color-sky-blob-soft: #9ccbf3;
+  --color-peach-blob: #ffb98a;
+
+  /* Entradas */
+  --color-income: #2b78c9;
+  --color-income-text: #1f65b0;
+  --color-income-soft: #e3f0fb;
+
+  /* Saídas e destaque */
+  --color-expense: #e8650f;
+  --color-expense-text: #b9500b;
+  --color-expense-soft: #fdebdd;
+  --color-expense-light: #f3a26b;
+
+  /* Tipografia */
+  --font-sans: "Manrope Variable", system-ui, -apple-system, sans-serif;
+  --text-caption: 14px;
+  --text-label: 15px;
+  --text-body: 17px;
+  --text-field: 18px;
+  --text-title: 20px;
+  --text-sheet-title: 24px;
+  --text-display: 40px;
+
+  /* Espaço e forma */
+  --gutter: 16px;
+  --gap-section: 16px;
+  --radius-card: 28px;
+  --radius-control: 16px;
+  --radius-pill: 999px;
+  --touch: 48px;
+
+  /* Vidro líquido: borda de luz (usada em glass.css) */
+  --glass-rim:
+    inset 0 1px 1px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.4),
+    inset 1px 0 1px rgba(255, 255, 255, 0.22),
+    inset -1px 0 1px rgba(255, 255, 255, 0.22);
+
+  /* Vidro líquido: cards */
+  --glass-bg: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(255, 255, 255, 0.22) 45%,
+    rgba(255, 255, 255, 0.38) 100%
+  );
+  --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+  --glass-blur: blur(18px) saturate(180%);
+  --glass-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset 1px 0 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -10px 24px rgba(255, 255, 255, 0.18),
+    0 10px 30px rgba(14, 34, 56, 0.08),
+    0 1px 3px rgba(14, 34, 56, 0.06);
+}
