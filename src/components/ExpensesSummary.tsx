@@ -3,6 +3,7 @@ import getTotalExpensesByCategory from "../logic/getTotalExpensesByCategory";
 import getTotalExpenses from "../logic/getTotalExpenses";
 import type { Category } from "../types/category";
 import type { Transaction } from "../types/transaction";
+import styles from "./ExpensesSummary.module.css";
 
 interface ExpensesSummaryProps {
     transactions: Transaction[]
@@ -14,19 +15,32 @@ export default function ExpensesSummary ({ transactions, categories}: ExpensesSu
     const byCategory = getTotalExpensesByCategory(transactions)
 
     const expensesByCategoryList = Object.entries(byCategory)
- 
+
     function findCategory (categoryId: string) {
         const category = categories.find(cat => cat.id === categoryId)
         return category?.name
     }
 
-    if (totalExpenses === 0) return <p>Nenhum gasto registrado</p>
+    if (totalExpenses === 0) return <p className={styles.empty}>Nenhum gasto registrado</p>
     return (
-        <>
-        <p><strong>Total de Gastos: {formatCurrency(totalExpenses)}</strong></p>
+        <div className={styles.summary}>
+        <p className={styles.total}>
+            <span className={styles.totalLabel}>Total de gastos</span>
+            <strong className={`${styles.totalValue} tabular`}>{formatCurrency(totalExpenses)}</strong>
+        </p>
+        <ul className={styles.categories}>
         {expensesByCategoryList.map(([categoryId, total]) => (
-            <p key={categoryId}>{findCategory(categoryId)}: {formatCurrency(total)}</p>
+            <li key={categoryId} className={styles.category}>
+                <span className={styles.categoryLine}>
+                    <span className={styles.categoryName}>{findCategory(categoryId)}</span>
+                    <span className={`${styles.categoryValue} tabular`}>{formatCurrency(total)}</span>
+                </span>
+                <span className={styles.track}>
+                    <span className={styles.bar} style={{ width: `${(total / totalExpenses) * 100}%` }} />
+                </span>
+            </li>
         ))}
-        </>
+        </ul>
+        </div>
     )
 }

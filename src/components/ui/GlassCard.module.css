@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 18px;
+  border-radius: var(--radius-card);
+  background: var(--glass-bg);
+  border: var(--glass-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 6px;
+}
+
+.title {
+  font-size: var(--text-title);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: var(--text-caption);
+  font-weight: 500;
+  color: var(--color-muted);
+}

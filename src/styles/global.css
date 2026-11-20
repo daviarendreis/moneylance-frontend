@@ -1,0 +1,82 @@
+@import "./tokens.css";
+@import "./glass.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: linear-gradient(180deg, var(--color-sky) 0%, #f6fafe 45%, #ffffff 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Manchas de cor fixas atrás do vidro (gradientes radiais: mais leves que filter: blur no iPhone) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 5% 2%, color-mix(in srgb, var(--color-sky-blob) 85%, transparent) 0, transparent 42%),
+    radial-gradient(circle at 100% 28%, color-mix(in srgb, var(--color-peach-blob) 70%, transparent) 0, transparent 38%),
+    radial-gradient(circle at 0% 72%, color-mix(in srgb, var(--color-sky-blob-soft) 75%, transparent) 0, transparent 40%),
+    radial-gradient(circle at 95% 95%, color-mix(in srgb, var(--color-peach-blob) 55%, transparent) 0, transparent 35%);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Números alinhados em colunas */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-income) 55%, transparent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
