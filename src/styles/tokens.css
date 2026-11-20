@@ -7,9 +7,14 @@
   --color-field-border: rgba(14, 34, 56, 0.12);
 
   --color-sky: #eaf4fc;
-  --color-sky-blob: #7db9ee;
-  --color-sky-blob-soft: #9ccbf3;
-  --color-peach-blob: #ffb98a;
+  --color-sky-wash: #b9dbf6;
+
+  /* Superfícies sólidas */
+  --color-surface: #ffffff;
+  --color-surface-border: rgba(14, 34, 56, 0.06);
+  --color-surface-warm: #fff5ee;
+  --color-surface-warm-border: rgba(232, 101, 15, 0.14);
+  --color-neutral-fill: rgba(14, 34, 56, 0.05);
 
   /* Entradas */
   --color-income: #2b78c9;
@@ -21,6 +26,8 @@
   --color-expense-text: #b9500b;
   --color-expense-soft: #fdebdd;
   --color-expense-light: #f3a26b;
+  --color-expense-strong: #c4500a;
+  --color-expense-deep: #9a4209;
 
   /* Tipografia */
   --font-sans: "Manrope Variable", system-ui, -apple-system, sans-serif;
@@ -35,7 +42,7 @@
   /* Espaço e forma */
   --gutter: 16px;
   --gap-section: 16px;
-  --radius-card: 28px;
+  --radius-card: 20px;
   --radius-control: 16px;
   --radius-pill: 999px;
   --touch: 48px;
@@ -47,20 +54,8 @@
     inset 1px 0 1px rgba(255, 255, 255, 0.22),
     inset -1px 0 1px rgba(255, 255, 255, 0.22);
 
-  /* Vidro líquido: cards */
-  --glass-bg: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.62) 0%,
-    rgba(255, 255, 255, 0.22) 45%,
-    rgba(255, 255, 255, 0.38) 100%
-  );
-  --glass-border: 1px solid rgba(255, 255, 255, 0.7);
-  --glass-blur: blur(18px) saturate(180%);
-  --glass-shadow:
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.95),
-    inset 1px 0 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.35),
-    inset 0 -10px 24px rgba(255, 255, 255, 0.18),
-    0 10px 30px rgba(14, 34, 56, 0.08),
-    0 1px 3px rgba(14, 34, 56, 0.06);
+  /* Sombra das superfícies sólidas: discreta, com deslocamento para baixo */
+  --shadow-surface:
+    0 1px 2px rgba(14, 34, 56, 0.04),
+    0 6px 20px rgba(14, 34, 56, 0.05);
 }

@@ -7,6 +7,9 @@
   gap: 12px;
   padding: 18px 16px;
   border-radius: var(--radius-card);
+  background: var(--color-surface-warm);
+  border: 1px solid var(--color-surface-warm-border);
+  box-shadow: var(--shadow-surface);
 }
 
 .label {

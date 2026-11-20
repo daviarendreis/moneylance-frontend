@@ -17,25 +17,22 @@ body {
   min-height: 100dvh;
   font-family: var(--font-sans);
   color: var(--color-ink);
-  background: linear-gradient(180deg, var(--color-sky) 0%, #f6fafe 45%, #ffffff 100%);
-  background-attachment: fixed;
+  position: relative;
+  background: #f5f8fb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Manchas de cor fixas atrás do vidro (gradientes radiais: mais leves que filter: blur no iPhone) */
+/* Um único tom de céu no topo: é o que o vidro do saldo refrata */
 body::before {
   content: "";
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  inset: 0 0 auto;
+  height: 420px;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 5% 2%, color-mix(in srgb, var(--color-sky-blob) 85%, transparent) 0, transparent 42%),
-    radial-gradient(circle at 100% 28%, color-mix(in srgb, var(--color-peach-blob) 70%, transparent) 0, transparent 38%),
-    radial-gradient(circle at 0% 72%, color-mix(in srgb, var(--color-sky-blob-soft) 75%, transparent) 0, transparent 40%),
-    radial-gradient(circle at 95% 95%, color-mix(in srgb, var(--color-peach-blob) 55%, transparent) 0, transparent 35%);
+  background: radial-gradient(120% 100% at 20% 0%, var(--color-sky-wash) 0%, transparent 70%);
 }
 
 h1,

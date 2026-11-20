@@ -23,15 +23,15 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
 
             {view === "menu" ? (
                 <div className={styles.options} role="menu">
-                    <button type="button" role="menuitem" className={`${styles.option} glass glass--frost`} onClick={() => setView("transaction")}>
-                        <span className={`${styles.optionIcon} glass glass--ink`}><SwapIcon /></span>
+                    <button type="button" role="menuitem" className={styles.option} onClick={() => setView("transaction")}>
+                        <span className={styles.optionIcon}><SwapIcon /></span>
                         <span className={styles.optionText}>
                             <span className={styles.optionTitle}>Nova transação</span>
                             <span className={styles.optionSub}>Entrada ou saída de dinheiro</span>
                         </span>
                     </button>
-                    <button type="button" role="menuitem" className={`${styles.option} glass glass--frost`} onClick={() => setView("bill")}>
-                        <span className={`${styles.optionIcon} glass glass--ink`}><CalendarIcon /></span>
+                    <button type="button" role="menuitem" className={styles.option} onClick={() => setView("bill")}>
+                        <span className={styles.optionIcon}><CalendarIcon /></span>
                         <span className={styles.optionText}>
                             <span className={styles.optionTitle}>Nova conta</span>
                             <span className={styles.optionSub}>Algo para pagar até uma data</span>
@@ -45,7 +45,7 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
                     <div className={styles.handle} />
                     <div className={styles.sheetHeader}>
                         <h2 id="sheet-title" className={styles.sheetTitle}>{sheetTitle}</h2>
-                        <button type="button" className={`${styles.closeButton} glass glass--clear`} onClick={() => setView("closed")} aria-label="Fechar">
+                        <button type="button" className={styles.closeButton} onClick={() => setView("closed")} aria-label="Fechar">
                             <CloseIcon />
                         </button>
                     </div>

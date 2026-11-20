@@ -7,7 +7,7 @@ export default function NextBillCard() {
     const bill = PLACEHOLDER_NEXT_BILL
 
     return (
-        <section className={`${styles.card} glass glass--peach`} aria-label="Próxima conta">
+        <section className={styles.card} aria-label="Próxima conta">
             <p className={styles.label}>
                 <span className={styles.dot} />
                 Próxima conta

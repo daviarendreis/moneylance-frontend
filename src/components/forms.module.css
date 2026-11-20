@@ -129,26 +129,17 @@
   outline: 3px solid color-mix(in srgb, var(--color-income) 55%, transparent);
 }
 
-/* Opção marcada vira uma pílula de vidro tingida */
-.segment:has(input:checked) {
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  backdrop-filter: blur(14px) saturate(200%);
-}
-
+/* Opção marcada: pílula branca com contorno da cor do tipo */
 .segmentIncome:has(input:checked) {
   color: var(--color-income-text);
-  background:
-    radial-gradient(130% 75% at 28% -12%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 58%),
-    linear-gradient(160deg, rgba(232, 243, 252, 0.95) 0%, rgba(190, 220, 246, 0.6) 100%);
-  box-shadow: var(--glass-rim), inset 0 0 0 1.5px color-mix(in srgb, var(--color-income) 55%, transparent), 0 4px 12px rgba(43, 120, 201, 0.16);
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(14, 34, 56, 0.08), inset 0 0 0 1.5px var(--color-income);
 }
 
 .segmentExpense:has(input:checked) {
   color: var(--color-expense-text);
-  background:
-    radial-gradient(130% 75% at 28% -12%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 58%),
-    linear-gradient(160deg, rgba(255, 240, 228, 0.95) 0%, rgba(255, 200, 160, 0.55) 100%);
-  box-shadow: var(--glass-rim), inset 0 0 0 1.5px color-mix(in srgb, var(--color-expense) 55%, transparent), 0 4px 12px rgba(232, 101, 15, 0.16);
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(14, 34, 56, 0.08), inset 0 0 0 1.5px var(--color-expense);
 }
 
 /* Recorrente: checkbox com cara de interruptor */
@@ -220,7 +211,16 @@
 .submit {
   height: 58px;
   margin-top: 4px;
+  border: none;
   border-radius: 18px;
   font-size: var(--text-field);
   font-weight: 700;
+  color: #ffffff;
+  background: var(--color-expense-strong);
+  box-shadow: 0 6px 16px rgba(196, 80, 10, 0.22);
+  transition: transform 120ms ease;
+}
+
+.submit:active {
+  transform: scale(0.98);
 }

@@ -59,11 +59,22 @@
 }
 
 .payButton {
+  border: none;
   font-size: 17px;
+  color: var(--color-expense-deep);
+  background: var(--color-expense-soft);
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.payButton:active {
+  transform: scale(0.96);
+  background: #fbdcc6;
 }
 
 .paidBadge {
   font-size: 15px;
+  color: var(--color-income-text);
+  background: var(--color-income-soft);
 }
 
 .empty {
