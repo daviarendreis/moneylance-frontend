@@ -57,6 +57,17 @@ select {
 
 button {
   cursor: pointer;
+  touch-action: manipulation;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: var(--color-expense-soft);
+}
+
+input,
+select {
+  caret-color: var(--color-expense);
 }
 
 /* Números alinhados em colunas */

@@ -10,7 +10,7 @@ interface BillsListProps {
 }
 
 export default function BillsList ({bills, markAsPaid}: BillsListProps) {
-    if (bills.length === 0) return <p className={styles.empty}>Nenhuma conta cadastrada</p>
+    if (bills.length === 0) return <p className={styles.empty}>Nenhuma conta cadastrada. Toque no + para adicionar.</p>
     return (
         <ul className={styles.list}>
             {bills.map(bill => (

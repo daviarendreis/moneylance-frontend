@@ -86,3 +86,13 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+.moreButton:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .moreButton:hover {
+    background: rgba(14, 34, 56, 0.08);
+  }
+}

@@ -71,6 +71,12 @@
   background: #fbdcc6;
 }
 
+@media (hover: hover) {
+  .payButton:hover {
+    background: #fbe1cf;
+  }
+}
+
 .paidBadge {
   font-size: 15px;
   color: var(--color-income-text);

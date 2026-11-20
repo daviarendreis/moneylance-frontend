@@ -20,8 +20,8 @@ function App() {
   const { categories, error: catError, loading: catLoading } = useCategories()
   const { transactions, error: trError, loading: trLoading, addTransaction } = useTransactions()
 
-  if (billLoading || catLoading || trLoading) return <p className={styles.status}>Carregando...</p>
-  if (billError || catError || trError) return <p className={styles.status}>{"Erro ao Carregar"}</p>
+  if (billLoading || catLoading || trLoading) return <p className={styles.status}>Carregando…</p>
+  if (billError || catError || trError) return <p className={styles.status}>Não foi possível carregar seus dados. Recarregue a página.</p>
 
   return (
     <div className={styles.app}>
