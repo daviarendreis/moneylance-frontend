@@ -11,8 +11,8 @@ export default function BalanceChart() {
             <svg className={styles.svg} viewBox="0 0 322 150" preserveAspectRatio="none" role="img" aria-label="Gráfico do saldo no mês">
                 <defs>
                     <linearGradient id="balance-area" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stopColor="#2B78C9" stopOpacity="0.28" />
-                        <stop offset="1" stopColor="#2B78C9" stopOpacity="0" />
+                        <stop offset="0" stopColor="currentColor" stopOpacity="0.28" />
+                        <stop offset="1" stopColor="currentColor" stopOpacity="0" />
                     </linearGradient>
                 </defs>
                 <line x1="0" y1="40" x2="322" y2="40" className={styles.grid} />

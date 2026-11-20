@@ -8,10 +8,7 @@ export default function NextBillCard() {
 
     return (
         <section className={styles.card} aria-label="Próxima conta">
-            <p className={styles.label}>
-                <span className={styles.dot} />
-                Próxima conta
-            </p>
+            <p className={styles.label}>Próxima conta</p>
             <div className={styles.body}>
                 <p className={styles.description}>{bill.description}</p>
                 <p className={`${styles.amount} tabular`}>{formatCurrency(bill.amount)}</p>

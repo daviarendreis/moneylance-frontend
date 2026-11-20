@@ -71,6 +71,20 @@
   transform: scale(0.98);
 }
 
+@media (hover: hover) {
+  .option:hover {
+    box-shadow: 0 12px 32px rgba(14, 34, 56, 0.2), 0 1px 3px rgba(14, 34, 56, 0.08);
+  }
+
+  .closeButton:hover {
+    background: rgba(14, 34, 56, 0.09);
+  }
+
+  .fab:hover {
+    filter: brightness(1.05);
+  }
+}
+
 .optionIcon {
   width: 48px;
   height: 48px;

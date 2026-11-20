@@ -7,6 +7,7 @@
 
 .svg {
   display: block;
+  color: var(--color-income);
   width: 100%;
   height: 150px;
 }
@@ -26,6 +27,7 @@
 
 .labels {
   display: flex;
+  font-variant-numeric: tabular-nums;
   justify-content: space-between;
   font-size: 13px;
   font-weight: 600;

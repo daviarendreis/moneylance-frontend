@@ -21,7 +21,7 @@ export default function ExpensesSummary ({ transactions, categories}: ExpensesSu
         return category?.name
     }
 
-    if (totalExpenses === 0) return <p className={styles.empty}>Nenhum gasto registrado</p>
+    if (totalExpenses === 0) return <p className={styles.empty}>Nenhum gasto registrado ainda.</p>
     return (
         <div className={styles.summary}>
         <p className={styles.total}>

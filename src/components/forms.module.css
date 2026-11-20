@@ -42,6 +42,22 @@
   color: var(--color-placeholder);
 }
 
+/* Campo numérico sem as setinhas de incremento */
+.input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+/* Data no iPhone: texto alinhado à esquerda como nos outros campos */
+.input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 .input:focus {
   outline: none;
   border-color: var(--color-income);
@@ -223,4 +239,14 @@
 
 .submit:active {
   transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .submit:hover {
+    background: #b3490a;
+  }
+
+  .segment:not(:has(input:checked)):hover {
+    color: var(--color-ink);
+  }
 }
