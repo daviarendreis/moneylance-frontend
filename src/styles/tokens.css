@@ -2,7 +2,7 @@
   /* Cores — cena: vidro embaçado numa manhã fria, com sol nascendo */
   --color-ink: #0e2238;
   --color-muted: #5a6b7d;
-  --color-placeholder: #8a97a6;
+  --color-placeholder: #687585; /* 4,7:1 sobre branco */
   --color-line: rgba(14, 34, 56, 0.08);
   --color-field-border: rgba(14, 34, 56, 0.12);
 

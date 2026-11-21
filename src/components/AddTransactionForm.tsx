@@ -69,7 +69,8 @@ export default function AddTransactionForm ({ addTransaction, categories }: AddT
                     id="amount"
                     className={`${forms.input} ${forms.moneyInput}`}
                     inputMode="decimal"
-                    value={amount}
+                    placeholder="0,00"
+                    value={amount === 0 ? "" : amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
                     min={0}
                     step={0.01}

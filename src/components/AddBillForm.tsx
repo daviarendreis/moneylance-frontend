@@ -42,8 +42,10 @@ export default function AddBillForm({addBill}: AddBillFormProps) {
                     id="amount"
                     className={`${forms.input} ${forms.moneyInput}`}
                     inputMode="decimal"
-                    value={amount}
-                    onChange={(e) => setAmount(Number(e.target.value))}/>
+                    placeholder="0,00"
+                    value={amount === 0 ? "" : amount}
+                    onChange={(e) => setAmount(Number(e.target.value))}
+                    required/>
                 </div>
             </div>
 
@@ -55,7 +57,8 @@ export default function AddBillForm({addBill}: AddBillFormProps) {
                 className={forms.input}
                 placeholder="Ex.: Plano de saúde"
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}/>
+                onChange={(e) => setDescription(e.target.value)}
+                required/>
             </div>
 
             <div className={forms.field}>
@@ -65,7 +68,8 @@ export default function AddBillForm({addBill}: AddBillFormProps) {
                 id="dueDate"
                 className={forms.input}
                 value={dueDate}
-                onChange={(e) => setDueDate(e.target.value)}/>
+                onChange={(e) => setDueDate(e.target.value)}
+                required/>
             </div>
 
             <label htmlFor="isRecurring" className={forms.switchRow}>
