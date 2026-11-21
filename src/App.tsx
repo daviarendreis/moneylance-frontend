@@ -13,13 +13,16 @@ import useCategories from "./hooks/useCategories"
 import useTransactions from "./hooks/useTransactions"
 import formatCurrency from "./logic/formatCurrency"
 import getBalance from "./logic/getBalance"
-import { PLACEHOLDER_BILLS_COUNT, PLACEHOLDER_MONTH } from "./placeholders/layoutPlaceholders"
 import styles from "./App.module.css"
+import getBillsTallied from "./logic/getBillsTallied"
+import getMonth from "./logic/getMonth"
 
 function App() {
   const { bills, error: billError, loading: billLoading, markAsPaid, addBill } = useBills()
   const { categories, error: catError, loading: catLoading } = useCategories()
   const { transactions, error: trError, loading: trLoading, addTransaction } = useTransactions()
+
+  const { paid, unpaid } = getBillsTallied(bills)
 
   if (billLoading || catLoading || trLoading) return <p className={styles.status}>Carregando…</p>
   if (billError || catError || trError) return <p className={styles.status}>Não foi possível carregar seus dados. Recarregue a página.</p>
@@ -31,7 +34,7 @@ function App() {
           <AppMark size={32} />
           <h1 className={styles.brandName}>MoneyLance</h1>
         </div>
-        <span className={styles.month}>{PLACEHOLDER_MONTH}</span>
+        <span className={styles.month}>{getMonth()}</span>
       </header>
 
       <main className={styles.main}>
@@ -55,7 +58,7 @@ function App() {
           <ExpensesSummary transactions={transactions} categories={categories}/>
         </SectionCard>
 
-        <SectionCard title="Contas" subtitle={PLACEHOLDER_BILLS_COUNT}>
+        <SectionCard title="Contas" subtitle={`${unpaid} a pagar · ${paid} pagas`}>
           <BillsList bills={bills} markAsPaid={markAsPaid}/>
         </SectionCard>
       </main>

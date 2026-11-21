@@ -7,12 +7,6 @@
  * Quando nada mais importar este arquivo, ele pode ser apagado.
  */
 
-// Cabeçalho: mês atual. Trocar por: data de hoje formatada como nome do mês.
-export const PLACEHOLDER_MONTH = "Novembro"
-
-// Card "Contas": contador. Trocar por: contagem de contas pagas e a pagar.
-export const PLACEHOLDER_BILLS_COUNT = "3 a pagar · 2 pagas"
-
 // Gráfico do saldo: linha fixa (coordenadas SVG, 322 × 150). Trocar por: pontos do saldo acumulado por data.
 export const PLACEHOLDER_CHART_LINE =
     "M0 112 C 25 112, 30 30, 60 30 C 85 30, 90 62, 120 66 C 150 70, 160 72, 185 74 C 210 76, 215 40, 245 36 C 270 33, 280 48, 300 50 L 316 50"
