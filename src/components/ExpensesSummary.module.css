@@ -1,13 +1,16 @@
 .summary {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
+  padding-top: 2px;
 }
 
+/* Total em uma linha: rótulo à esquerda, número em destaque à direita */
 .total {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .totalLabel {
@@ -17,43 +20,49 @@
 }
 
 .totalValue {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.02em;
+  white-space: nowrap;
   color: var(--color-expense-text);
 }
 
 .categories {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .category {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .categoryLine {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 12px;
 }
 
 .categoryName {
+  min-width: 0;
   font-size: 16px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .categoryValue {
+  flex-shrink: 0;
   font-size: 16px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .track {
   display: block;
-  height: 10px;
+  height: 6px;
   border-radius: var(--radius-pill);
   background: rgba(14, 34, 56, 0.07);
   overflow: hidden;
@@ -71,7 +80,7 @@
 }
 
 .empty {
-  padding: 12px 0 4px;
+  padding: 8px 0 4px;
   font-size: var(--text-body);
   color: var(--color-muted);
 }
