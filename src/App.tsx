@@ -40,7 +40,7 @@ function App() {
             <p className={styles.balanceLabel}>Saldo atual</p>
             <p className={`${styles.balanceValue} tabular`}>{formatCurrency(getBalance(transactions))}</p>
           </section>
-          <NextBillCard />
+          <NextBillCard bills={bills} />
         </div>
 
         <SectionCard title="Últimas transações" variant="plain">
