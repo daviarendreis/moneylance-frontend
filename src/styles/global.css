@@ -10,6 +10,16 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Sem o "elástico" da página inteira: comportamento de app, não de site */
+  overscroll-behavior-y: none;
+}
+
+/* Segurar o dedo num botão não seleciona texto nem abre o menu de cópia */
+button,
+[role="menuitem"] {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 body {

@@ -5,6 +5,7 @@ import BillsList from "./components/BillsList"
 import ExpensesSummary from "./components/ExpensesSummary"
 import NextBillCard from "./components/NextBillCard"
 import TransactionsList from "./components/TransactionsList"
+import AppMark from "./components/ui/AppMark"
 import FabMenu from "./components/ui/FabMenu"
 import SectionCard from "./components/ui/SectionCard"
 import useBills from "./hooks/useBills"
@@ -27,7 +28,7 @@ function App() {
     <div className={styles.app}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.logo} aria-hidden="true"><span className={styles.logoDot} /></span>
+          <AppMark size={32} />
           <h1 className={styles.brandName}>MoneyLance</h1>
         </div>
         <span className={styles.month}>{PLACEHOLDER_MONTH}</span>
