@@ -32,30 +32,19 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.logo {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9px;
-  background: var(--color-ink);
-}
-
-.logoDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-expense);
+.brand svg {
+  flex-shrink: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(14, 34, 56, 0.18);
 }
 
 .brandName {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .month {
