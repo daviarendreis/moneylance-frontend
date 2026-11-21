@@ -10,13 +10,6 @@
 // Cabeçalho: mês atual. Trocar por: data de hoje formatada como nome do mês.
 export const PLACEHOLDER_MONTH = "Novembro"
 
-// Card "Próxima conta". Trocar por: a conta não paga com o vencimento mais próximo.
-export const PLACEHOLDER_NEXT_BILL = {
-    description: "Conta de luz",
-    amount: 237.45,
-    dueLabel: "Vence 20/11",
-}
-
 // Card "Contas": contador. Trocar por: contagem de contas pagas e a pagar.
 export const PLACEHOLDER_BILLS_COUNT = "3 a pagar · 2 pagas"
 
