@@ -6,7 +6,7 @@ import findCategory from "../logic/findCategory";
 import type { Category } from "../types/category";
 import formatDate from "../logic/formatDate";
 import { useState } from "react";
-import sortTransactions from "../logic/sortTransactions";
+import { sortTransactions } from "../logic/sortByDate";
 
 interface TransactionsListProps {
     transactions: Transaction[]
