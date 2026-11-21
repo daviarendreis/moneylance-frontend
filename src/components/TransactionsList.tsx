@@ -17,7 +17,7 @@ export default function TransactionsList ({ transactions }: TransactionsListProp
                 {transactions.map((tr) => (
                     <li key={tr.id} className={`${styles.row} ${tr.type === "income" ? styles.income : styles.expense}`}>
                         <span className={styles.icon}>
-                            {tr.type === "income" ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                            {tr.type === "income" ? <ArrowUpIcon size={22} /> : <ArrowDownIcon size={22} />}
                         </span>
                         <span className={styles.text}>
                             <span className={styles.description}>{tr.description}</span>

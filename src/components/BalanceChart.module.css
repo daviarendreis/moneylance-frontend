@@ -1,14 +1,16 @@
 .chart {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding-top: 8px;
+  gap: 10px;
+  padding-top: 10px;
 }
 
+/* O gráfico encosta nas laterais do card: este bloco lê como figura, não como mais uma lista */
 .svg {
   display: block;
   color: var(--color-income);
-  width: 100%;
+  width: calc(100% + 36px);
+  margin: 0 -18px;
   height: 150px;
 }
 

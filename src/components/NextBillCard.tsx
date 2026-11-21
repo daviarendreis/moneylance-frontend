@@ -7,13 +7,12 @@ export default function NextBillCard() {
     const bill = PLACEHOLDER_NEXT_BILL
 
     return (
-        <section className={styles.card} aria-label="Próxima conta">
-            <p className={styles.label}>Próxima conta</p>
-            <div className={styles.body}>
-                <p className={styles.description}>{bill.description}</p>
-                <p className={`${styles.amount} tabular`}>{formatCurrency(bill.amount)}</p>
-                <p className={styles.due}>{bill.dueLabel}</p>
-            </div>
+        <section className={styles.strip} aria-label="Próxima conta">
+            <p className={styles.meta}>
+                <span className={styles.label}>Próxima conta</span> · {bill.dueLabel}
+            </p>
+            <p className={styles.description}>{bill.description}</p>
+            <p className={`${styles.amount} tabular`}>{formatCurrency(bill.amount)}</p>
         </section>
     )
 }

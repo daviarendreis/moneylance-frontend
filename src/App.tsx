@@ -34,15 +34,15 @@ function App() {
       </header>
 
       <main className={styles.main}>
-        <div className={styles.topRow}>
-          <section className={`${styles.balanceCard} glass glass--sky`} aria-label="Saldo atual">
+        <div className={styles.top}>
+          <section className={`${styles.balance} glass glass--sky`} aria-label="Saldo atual">
             <p className={styles.balanceLabel}>Saldo atual</p>
             <p className={`${styles.balanceValue} tabular`}>{formatCurrency(getBalance(transactions))}</p>
           </section>
           <NextBillCard />
         </div>
 
-        <SectionCard title="Últimas transações">
+        <SectionCard title="Últimas transações" variant="plain">
           <TransactionsList transactions={transactions}/>
         </SectionCard>
 
