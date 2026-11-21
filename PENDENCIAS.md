@@ -67,5 +67,5 @@ Todos os dados fixos ficam em [`src/placeholders/layoutPlaceholders.ts`](src/pla
 ## Fora do layout (tarefas separadas)
 
 - [x] **PWA instalável:** manifest (`public/manifest.webmanifest`), ícones (`public/icons/`, `public/favicon.svg`) e meta tags `apple-mobile-web-app-*`. Já dá para "Adicionar à Tela de Início" no iPhone e abrir em tela cheia.
-- [ ] **Funcionar offline:** service worker (ex.: `vite-plugin-pwa`, dependência nova). Sem isso o app precisa de internet para abrir.
+- [x] **Funcionar offline:** service worker via `vite-plugin-pwa` (configurado em `vite.config.ts`). O app abre sem internet. Quando o back-end existir, os dados vão precisar de uma estratégia própria de cache/sincronização.
 - [ ] **Campo de data no formulário de transação:** só se você quiser que a data seja a do gasto, e não a do registro.

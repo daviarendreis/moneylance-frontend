@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
 import { CalendarIcon, CloseIcon, PlusIcon, SwapIcon } from "./icons"
 import styles from "./FabMenu.module.css"
 
@@ -11,6 +11,15 @@ type View = "closed" | "menu" | "transaction" | "bill"
 
 export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
     const [view, setView] = useState<View>("closed")
+    // Estado só de interface: fora do topo da página, o "+" fica menor e transparente
+    const [compact, setCompact] = useState(false)
+
+    useEffect(() => {
+        const onScroll = () => setCompact(window.scrollY > 24)
+        onScroll()
+        window.addEventListener("scroll", onScroll, { passive: true })
+        return () => window.removeEventListener("scroll", onScroll)
+    }, [])
 
     const sheetTitle = view === "transaction" ? "Nova transação" : "Nova conta"
     const isSheet = view === "transaction" || view === "bill"
@@ -54,7 +63,7 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
             ) : (
                 <button
                     type="button"
-                    className={`${styles.fab} ${view === "menu" ? styles.fabOpen : ""} glass glass--orange`}
+                    className={`${styles.fab} ${view === "menu" ? styles.fabOpen : ""} ${compact && view === "closed" ? styles.fabCompact : ""} glass glass--orange`}
                     onClick={() => setView(view === "menu" ? "closed" : "menu")}
                     aria-label={view === "menu" ? "Fechar menu" : "Adicionar"}
                     aria-expanded={view === "menu"}
