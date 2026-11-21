@@ -44,7 +44,7 @@ function App() {
         </div>
 
         <SectionCard title="Últimas transações" variant="plain">
-          <TransactionsList transactions={transactions}/>
+          <TransactionsList transactions={transactions} categories={categories}/>
         </SectionCard>
 
         <SectionCard title="Saldo no mês" subtitle="Como seu dinheiro variou no mês">
