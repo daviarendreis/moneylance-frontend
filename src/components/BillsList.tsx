@@ -2,8 +2,8 @@ import { useState } from "react";
 import formatCurrency from "../logic/formatCurrency";
 import type { Bill } from "../types/bill";
 import { CheckIcon } from "./ui/icons";
-import { PLACEHOLDER_BILL_DUE } from "../placeholders/layoutPlaceholders";
 import styles from "./BillsList.module.css";
+import formatDate from "../logic/formatDate";
 
 interface BillsListProps {
     bills: Bill[]
@@ -22,7 +22,7 @@ export default function BillsList ({bills, markAsPaid}: BillsListProps) {
                     <span className={styles.text}>
                         <span className={styles.description}>{bill.description}</span>
                         <span className={`${styles.amount} tabular`}>{formatCurrency(bill.amount)}</span>
-                        <span className={styles.meta}>{PLACEHOLDER_BILL_DUE}{bill.isRecurring ? " · Todo mês" : ""}</span>
+                        <span className={styles.meta}>Vence {formatDate(bill.dueDate)}{bill.isRecurring ? " · Todo mês" : ""}</span>
                     </span>
                     {bill.isPaid
                         ? <span className={styles.paidBadge}><CheckIcon /> Paga</span>

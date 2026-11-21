@@ -17,12 +17,6 @@ export const PLACEHOLDER_NEXT_BILL = {
     dueLabel: "Vence 20/11",
 }
 
-// Linha de transação: "Categoria · data". Trocar por: nome da categoria + createdAt formatado.
-export const PLACEHOLDER_TRANSACTION_META = "Categoria · 18/11"
-
-// Linha de conta: vencimento. Trocar por: dueDate formatado.
-export const PLACEHOLDER_BILL_DUE = "Vence 20/11"
-
 // Card "Contas": contador. Trocar por: contagem de contas pagas e a pagar.
 export const PLACEHOLDER_BILLS_COUNT = "3 a pagar · 2 pagas"
 

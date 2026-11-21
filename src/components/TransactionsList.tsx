@@ -1,14 +1,18 @@
 import formatCurrency from "../logic/formatCurrency";
 import type { Transaction } from "../types/transaction";
 import { ArrowDownIcon, ArrowUpIcon } from "./ui/icons";
-import { PLACEHOLDER_TRANSACTION_META } from "../placeholders/layoutPlaceholders";
 import styles from "./TransactionsList.module.css";
+import findCategory from "../logic/findCategory";
+import type { Category } from "../types/category";
+import formatDate from "../logic/formatDate";
 
 interface TransactionsListProps {
     transactions: Transaction[]
+    categories: Category[]
 }
 
-export default function TransactionsList ({ transactions }: TransactionsListProps) {
+export default function TransactionsList ({ transactions, categories }: TransactionsListProps) {
+
     return (
         <>
         {transactions.length > 0 ? (
@@ -21,7 +25,7 @@ export default function TransactionsList ({ transactions }: TransactionsListProp
                         </span>
                         <span className={styles.text}>
                             <span className={styles.description}>{tr.description}</span>
-                            <span className={styles.meta}>{PLACEHOLDER_TRANSACTION_META}</span>
+                            <span className={styles.meta}>{findCategory(tr.categoryId, categories)} · {formatDate(tr.createdAt)}</span>
                         </span>
                         <span className={`${styles.amount} tabular`}>
                             {tr.type === "income" ? "+" : "−"} {formatCurrency(tr.amount)}

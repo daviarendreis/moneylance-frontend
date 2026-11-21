@@ -4,6 +4,7 @@ import getTotalExpenses from "../logic/getTotalExpenses";
 import type { Category } from "../types/category";
 import type { Transaction } from "../types/transaction";
 import styles from "./ExpensesSummary.module.css";
+import findCategory from "../logic/findCategory";
 
 interface ExpensesSummaryProps {
     transactions: Transaction[]
@@ -16,10 +17,6 @@ export default function ExpensesSummary ({ transactions, categories}: ExpensesSu
 
     const expensesByCategoryList = Object.entries(byCategory)
 
-    function findCategory (categoryId: string) {
-        const category = categories.find(cat => cat.id === categoryId)
-        return category?.name
-    }
 
     if (totalExpenses === 0) return <p className={styles.empty}>Nenhum gasto registrado ainda.</p>
     return (
@@ -32,7 +29,7 @@ export default function ExpensesSummary ({ transactions, categories}: ExpensesSu
         {expensesByCategoryList.map(([categoryId, total]) => (
             <li key={categoryId} className={styles.category}>
                 <span className={styles.categoryLine}>
-                    <span className={styles.categoryName}>{findCategory(categoryId)}</span>
+                    <span className={styles.categoryName}>{findCategory(categoryId, categories)}</span>
                     <span className={`${styles.categoryValue} tabular`}>{formatCurrency(total)}</span>
                 </span>
                 <span className={styles.track}>
