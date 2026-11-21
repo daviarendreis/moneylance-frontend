@@ -42,12 +42,6 @@
   color: var(--color-placeholder);
 }
 
-/* Campo obrigatório vazio: só depois que a pessoa interage (não ao abrir a folha) */
-.input:user-invalid {
-  border-color: var(--color-expense-strong);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-expense) 16%, transparent);
-}
-
 /* Campo numérico sem as setinhas de incremento */
 .input[type="number"] {
   -moz-appearance: textfield;
