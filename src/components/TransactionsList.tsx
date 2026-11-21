@@ -5,6 +5,8 @@ import styles from "./TransactionsList.module.css";
 import findCategory from "../logic/findCategory";
 import type { Category } from "../types/category";
 import formatDate from "../logic/formatDate";
+import { useState } from "react";
+import sortTransactions from "../logic/sortTransactions";
 
 interface TransactionsListProps {
     transactions: Transaction[]
@@ -12,13 +14,17 @@ interface TransactionsListProps {
 }
 
 export default function TransactionsList ({ transactions, categories }: TransactionsListProps) {
+    const [expanded, setExpanded] = useState<boolean>(false)
+
+    const sorted = sortTransactions(transactions)
+    const visible = expanded ? sorted : sorted.slice(0, 5)
 
     return (
         <>
         {transactions.length > 0 ? (
             <>
             <ul className={styles.list}>
-                {transactions.map((tr) => (
+                {visible.map((tr) => (
                     <li key={tr.id} className={`${styles.row} ${tr.type === "income" ? styles.income : styles.expense}`}>
                         <span className={styles.icon}>
                             {tr.type === "income" ? <ArrowUpIcon size={22} /> : <ArrowDownIcon size={22} />}
@@ -33,8 +39,11 @@ export default function TransactionsList ({ transactions, categories }: Transact
                     </li>
                 ))}
             </ul>
-            {/* Dado fixo: botão ainda sem ação (ver PENDENCIAS.md) */}
-            <button type="button" className={styles.moreButton}>Mostrar mais</button>
+            
+            {transactions.length > 5 && <button type="button" 
+                className={styles.moreButton}
+                onClick={() => setExpanded(!expanded)}
+                >{expanded ? "Mostrar menos" : "Mostrar mais"}</button>}
             </>
         ) : <p className={styles.empty}>Nenhuma transação ainda. Toque no + para registrar a primeira.</p>}
         </>
