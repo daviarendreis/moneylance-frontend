@@ -251,3 +251,51 @@
   --glass-sky-sheen: 0.16;
   --glass-sky-sheen-bottom: 0.04;
 }
+
+/* Alerta: conta atrasada (vermelho-tijolo; o laranja já significa "saída" e "ação") */
+:root {
+  --color-alert: #d8442a;
+  --color-alert-text: #b4321c; /* 5,2:1 sobre o fundo de alerta */
+  --color-alert-soft: #fde8e3;
+  --color-alert-border: rgba(216, 68, 42, 0.22);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-alert: #ff7a63;
+    --color-alert-text: #ff8f7a;
+    --color-alert-soft: #3a1d1d;
+    --color-alert-border: rgba(255, 122, 99, 0.3);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-alert: #ff7a63;
+  --color-alert-text: #ff8f7a;
+  --color-alert-soft: #3a1d1d;
+  --color-alert-border: rgba(255, 122, 99, 0.3);
+}
+
+/* Aviso flutuante (toast): contraste invertido em relação à página */
+:root {
+  --color-toast-bg: #0e2238;
+  --color-toast-text: #ffffff;
+  --color-toast-icon: #0e2238;
+  --color-toast-icon-bg: #84bdf2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-toast-bg: #eaf1f8;
+    --color-toast-text: #0b1726;
+    --color-toast-icon: #ffffff;
+    --color-toast-icon-bg: #1f65b0;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-toast-bg: #eaf1f8;
+  --color-toast-text: #0b1726;
+  --color-toast-icon: #ffffff;
+  --color-toast-icon-bg: #1f65b0;
+}

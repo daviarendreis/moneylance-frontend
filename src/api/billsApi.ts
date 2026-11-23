@@ -8,7 +8,7 @@ const mockBills: Bill[] = [
         dueDate: "2026-12-05",
         isRecurring: true,
         isPaid: false,
-        createdAt: new Date().toISOString(),
+        createdAt: "2026-11-02T12:00:00.000Z",
     },
     {
         id: crypto.randomUUID(),
@@ -17,7 +17,7 @@ const mockBills: Bill[] = [
         dueDate: "2026-11-20",
         isRecurring: true,
         isPaid: false,
-        createdAt: new Date().toISOString(),
+        createdAt: "2026-11-04T12:00:00.000Z",
     },
     {
         id: crypto.randomUUID(),
@@ -26,7 +26,7 @@ const mockBills: Bill[] = [
         dueDate: "2026-11-10",
         isRecurring: true,
         isPaid: true,
-        createdAt: new Date().toISOString(),
+        createdAt: "2026-11-01T12:00:00.000Z",
     },
     {
         id: crypto.randomUUID(),
@@ -35,7 +35,7 @@ const mockBills: Bill[] = [
         dueDate: "2026-11-25",
         isRecurring: false,
         isPaid: false,
-        createdAt: new Date().toISOString(),
+        createdAt: "2026-11-09T12:00:00.000Z",
     },
     {
         id: crypto.randomUUID(),
@@ -44,7 +44,7 @@ const mockBills: Bill[] = [
         dueDate: "2026-11-15",
         isRecurring: true,
         isPaid: true,
-        createdAt: new Date().toISOString(),
+        createdAt: "2026-11-03T12:00:00.000Z",
     }
 ]
 
