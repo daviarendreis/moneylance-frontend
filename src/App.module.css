@@ -19,6 +19,23 @@
   font-size: var(--text-body);
   font-weight: 600;
   color: var(--color-muted);
+  flex-direction: column;
+  gap: 16px;
+}
+
+.retry {
+  height: var(--touch);
+  padding: 0 24px;
+  border: none;
+  border-radius: 14px;
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--color-on-accent);
+  background: var(--color-expense-strong);
+}
+
+.retry:active {
+  transform: scale(0.97);
 }
 
 /* Cabeçalho */
