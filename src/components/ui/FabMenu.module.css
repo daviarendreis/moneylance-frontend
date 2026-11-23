@@ -202,3 +202,50 @@
 @keyframes slide {
   from { transform: translateY(100%); }
 }
+
+/* Aviso "… adicionada": aparece embaixo, à esquerda do botão "+" */
+.toastRegion {
+  position: fixed;
+  left: 16px;
+  right: 104px;
+  bottom: calc(env(safe-area-inset-bottom) + 34px);
+  z-index: 30;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--touch);
+  padding: 10px 16px 10px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-toast-text);
+  background: var(--color-toast-bg);
+  box-shadow: var(--shadow-float);
+  animation: toastIn 260ms cubic-bezier(0.2, 0.8, 0.2, 1), toastOut 240ms ease-in 2360ms forwards;
+}
+
+.toastIcon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-toast-icon);
+  background: var(--color-toast-icon-bg);
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+@keyframes toastOut {
+  to { opacity: 0; transform: translateY(6px); }
+}

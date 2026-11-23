@@ -67,6 +67,16 @@ export function CalendarIcon({ size = 22 }: IconProps) {
     )
 }
 
+export function AlertIcon({ size = 16 }: IconProps) {
+    return (
+        <svg width={size} height={size} viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="6.5" {...stroke} strokeWidth={1.8} />
+            <path d="M8 4.8V8.6" {...stroke} strokeWidth={1.8} />
+            <circle cx="8" cy="11.2" r="1" fill="currentColor" />
+        </svg>
+    )
+}
+
 export function SunIcon({ size = 22 }: IconProps) {
     return (
         <svg width={size} height={size} viewBox="0 0 22 22" aria-hidden="true">

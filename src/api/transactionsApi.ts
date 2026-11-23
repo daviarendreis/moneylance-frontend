@@ -6,7 +6,7 @@ export const mockTransactions: Transaction[] = [
     description: 'Salário Mensal',
     amount: 5500.00,
     type: 'income',
-    createdAt: new Date().toISOString(),
+    createdAt: "2026-11-05T12:00:00.000Z",
     categoryId: 'cat-salario',
   },
   {
@@ -14,7 +14,7 @@ export const mockTransactions: Transaction[] = [
     description: 'Compras do Mês',
     amount: 645.90,
     type: 'expense',
-    createdAt: new Date().toISOString(),
+    createdAt: "2026-11-08T12:00:00.000Z",
     categoryId: 'cat-mercado',
   },
   {
@@ -22,7 +22,7 @@ export const mockTransactions: Transaction[] = [
     description: 'Projeto Freelance Web',
     amount: 1800.00,
     type: 'income',
-    createdAt: new Date().toISOString(),
+    createdAt: "2026-11-12T12:00:00.000Z",
     categoryId: 'cat-venda',
   },
   {
@@ -30,7 +30,7 @@ export const mockTransactions: Transaction[] = [
     description: 'Aluguel Apartamento',
     amount: 1650.00,
     type: 'expense',
-    createdAt: new Date().toISOString(),
+    createdAt: "2026-11-10T12:00:00.000Z",
     categoryId: 'cat-conforto',
   },
   {
@@ -38,7 +38,7 @@ export const mockTransactions: Transaction[] = [
     description: 'Café da Tarde (Dinheiro)',
     amount: 24.50,
     type: 'expense',
-    createdAt: new Date().toISOString(),
+    createdAt: "2026-11-21T12:00:00.000Z",
     categoryId: 'cat-mercado',
   },
   {
@@ -46,7 +46,7 @@ export const mockTransactions: Transaction[] = [
     description: 'Assinatura Streaming',
     amount: 55.90,
     type: 'expense',
-    createdAt: new Date().toISOString(),
+    createdAt: "2026-11-15T12:00:00.000Z",
     categoryId: 'cat-conforto',
   },
 ];

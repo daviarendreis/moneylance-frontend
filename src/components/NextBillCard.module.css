@@ -49,6 +49,20 @@
   white-space: nowrap;
 }
 
+/* Conta atrasada: tom de alerta */
+.overdue {
+  background: var(--color-alert-soft);
+  border-color: var(--color-alert-border);
+}
+
+.overdue .label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: -2px;
+  color: var(--color-alert-text);
+}
+
 /* Estado vazio: nenhuma conta a pagar */
 .empty {
   display: flex;

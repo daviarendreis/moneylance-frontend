@@ -4,6 +4,7 @@ import type { Bill } from "../types/bill";
 import { CheckIcon } from "./ui/icons";
 import styles from "./BillsList.module.css";
 import formatDate from "../logic/formatDate";
+import isOverdue from "../logic/isOverdue";
 
 interface BillsListProps {
     bills: Bill[]
@@ -18,11 +19,14 @@ export default function BillsList ({bills, markAsPaid}: BillsListProps) {
     return (
         <ul className={styles.list}>
             {bills.map(bill => (
-                <li key={bill.id} className={`${styles.row} ${bill.isPaid ? styles.paid : ""}`}>
+                <li key={bill.id} className={`${styles.row} ${bill.isPaid ? styles.paid : ""} ${!bill.isPaid && isOverdue(bill.dueDate) ? styles.late : ""}`}>
                     <span className={styles.text}>
                         <span className={styles.description}>{bill.description}</span>
                         <span className={`${styles.amount} tabular`}>{formatCurrency(bill.amount)}</span>
-                        <span className={styles.meta}>Vence {formatDate(bill.dueDate)}{bill.isRecurring ? " · Todo mês" : ""}</span>
+                        <span className={styles.meta}>
+                            {!bill.isPaid && isOverdue(bill.dueDate) ? <span className={styles.lateBadge}>Atrasada</span> : null}
+                            {isOverdue(bill.dueDate) ? "Venceu" : "Vence"} {formatDate(bill.dueDate)}{bill.isRecurring ? " · Todo mês" : ""}
+                        </span>
                     </span>
                     {bill.isPaid
                         ? <span className={styles.paidBadge}><CheckIcon /> Paga</span>

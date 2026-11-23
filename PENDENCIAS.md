@@ -32,7 +32,7 @@ Todos os dados fixos ficam em [`src/placeholders/layoutPlaceholders.ts`](src/pla
   - Precisa de: entre as contas com `isPaid: false`, a de `dueDate` mais próximo, e o que mostrar quando não houver nenhuma.
   - Onde troca: `components/NextBillCard.tsx` (vai passar a receber a conta por prop) e `App.tsx`.
 
-- [ ] **6. Contador de contas**
+- [x] **6. Contador de contas**
   - Hoje mostra: `PLACEHOLDER_BILLS_COUNT` ("3 a pagar · 2 pagas").
   - Precisa de: contar as contas pagas e as a pagar.
   - Onde troca: o `subtitle` do card "Contas" em `App.tsx`.
@@ -55,16 +55,16 @@ Todos os dados fixos ficam em [`src/placeholders/layoutPlaceholders.ts`](src/pla
 - [ ] **10. Ordem das contas** (opcional)
   - Hoje: a ordem do mock. O desenho mostrava as a pagar primeiro, por vencimento.
 
-- [ ] **11. Mês no cabeçalho**
+- [x] **11. Mês no cabeçalho**
   - Hoje mostra: `PLACEHOLDER_MONTH` ("Novembro").
   - Precisa de: o nome do mês atual.
   - Onde troca: `App.tsx`.
 
-- [ ] **12. Fechar a folha depois de "Adicionar"**
+- [x] **12. Fechar a folha depois de "Adicionar"**
   - Hoje: a folha só fecha no "×" ou tocando fora dela.
   - Precisa de: o formulário avisar que foi enviado (por exemplo, uma prop `onSubmitted` no `AddTransactionForm` e no `AddBillForm`, ou envolver `addTransaction` e `addBill` no `App`).
 
-- [ ] **13. Conta atrasada x conta a vencer**
+- [x] **13. Conta atrasada x conta a vencer**
   - Hoje: a faixa "Próxima conta" e as linhas de conta sempre dizem "Vence 20/11", mesmo quando a data já passou (ex.: hoje é 21/11 e a Conta de luz venceu em 20/11).
   - Precisa de: uma função que compare o `dueDate` com a data de hoje (ex.: `logic/isOverdue.ts`, retornando `true`/`false`).
   - Onde troca (eu pinto): `components/NextBillCard.tsx` e `components/BillsList.tsx`. A faixa ganha tom de alerta e o texto vira "Venceu 20/11" / "Atrasada"; nas linhas de conta, o mesmo aviso.

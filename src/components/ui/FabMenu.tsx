@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react"
-import { CalendarIcon, CloseIcon, PlusIcon, SwapIcon } from "./icons"
+import { CalendarIcon, CheckIcon, CloseIcon, PlusIcon, SwapIcon } from "./icons"
 import styles from "./FabMenu.module.css"
 
 interface FabMenuProps {
@@ -24,6 +24,19 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
     const sheetTitle = view === "transaction" ? "Nova transação" : "Nova conta"
     const isSheet = view === "transaction" || view === "bill"
     const closeSheet = () => setView("closed")
+
+    // Aviso depois de salvar: fecha a folha (como antes) e mostra "… adicionada" por alguns segundos
+    const [toast, setToast] = useState<string | null>(null)
+    const handleSubmitted = () => {
+        setToast(view === "transaction" ? "Transação adicionada" : "Conta adicionada")
+        closeSheet()
+    }
+
+    useEffect(() => {
+        if (!toast) return
+        const timer = window.setTimeout(() => setToast(null), 2600)
+        return () => window.clearTimeout(timer)
+    }, [toast])
 
     return (
         <>
@@ -59,7 +72,7 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
                             <CloseIcon />
                         </button>
                     </div>
-                    {view === "transaction" ? transactionForm(closeSheet) : billForm(closeSheet)}
+                    {view === "transaction" ? transactionForm(handleSubmitted) : billForm(handleSubmitted)}
                 </div>
             ) : (
                 <button
@@ -72,6 +85,15 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
                     <PlusIcon />
                 </button>
             )}
+
+            <div className={styles.toastRegion} role="status" aria-live="polite">
+                {toast ? (
+                    <div key={toast} className={styles.toast}>
+                        <span className={styles.toastIcon}><CheckIcon size={16} /></span>
+                        {toast}
+                    </div>
+                ) : null}
+            </div>
         </>
     )
 }
