@@ -3,8 +3,8 @@ import { CalendarIcon, CloseIcon, PlusIcon, SwapIcon } from "./icons"
 import styles from "./FabMenu.module.css"
 
 interface FabMenuProps {
-    transactionForm: ReactNode
-    billForm: ReactNode
+    transactionForm: (onSubmitted: () => void) => ReactNode
+    billForm: (onSubmitted: () => void) => ReactNode
 }
 
 type View = "closed" | "menu" | "transaction" | "bill"
@@ -23,6 +23,7 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
 
     const sheetTitle = view === "transaction" ? "Nova transação" : "Nova conta"
     const isSheet = view === "transaction" || view === "bill"
+    const closeSheet = () => setView("closed")
 
     return (
         <>
@@ -58,7 +59,7 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
                             <CloseIcon />
                         </button>
                     </div>
-                    {view === "transaction" ? transactionForm : billForm}
+                    {view === "transaction" ? transactionForm(closeSheet) : billForm(closeSheet)}
                 </div>
             ) : (
                 <button

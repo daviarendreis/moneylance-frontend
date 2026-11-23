@@ -4,9 +4,10 @@ import forms from "./forms.module.css"
 
 interface AddBillFormProps {
     addBill: (newBill: NewBillInput) => void
+    onSubmitted: () => void
 }
 
-export default function AddBillForm({addBill}: AddBillFormProps) {
+export default function AddBillForm({ addBill, onSubmitted }: AddBillFormProps) {
     const [description, setDescription] = useState<string>("")
     const [amount, setAmount] = useState<number>(0)
     const [dueDate, setDueDate] = useState<string>("")
@@ -27,6 +28,7 @@ export default function AddBillForm({addBill}: AddBillFormProps) {
         setAmount(0)
         setDueDate("")
         setIsRecurring(false)
+        onSubmitted()
     }
 
     return (

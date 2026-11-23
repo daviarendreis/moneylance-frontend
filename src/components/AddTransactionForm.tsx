@@ -9,9 +9,10 @@ import forms from "./forms.module.css";
 interface AddTransactionFormProps {
     addTransaction: (newTransactionRaw: NewTransactionInput) => void
     categories: Category[]
+    onSubmitted: () => void
 }
 
-export default function AddTransactionForm ({ addTransaction, categories }: AddTransactionFormProps) {
+export default function AddTransactionForm ({ addTransaction, categories, onSubmitted }: AddTransactionFormProps) {
     const [description, setDescription] = useState<string>("")
     const [amount, setAmount] = useState<number>(0)
     const [type, setType] = useState<TransactionsType>("income")
@@ -32,6 +33,7 @@ export default function AddTransactionForm ({ addTransaction, categories }: AddT
         setAmount(0)
         setType("income")
         setCategoryId("")
+        onSubmitted()
     }
 
 
@@ -90,7 +92,7 @@ export default function AddTransactionForm ({ addTransaction, categories }: AddT
                 required/>
             </div>
 
-            <CategorySelect categories={categories} value={categoryId} onChange={setCategoryId}/>
+            <CategorySelect categories={categories} value={categoryId} onChange={setCategoryId} />
 
             <button type="submit" className={forms.submit}>Adicionar</button>
         </form>

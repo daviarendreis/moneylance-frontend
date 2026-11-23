@@ -68,8 +68,8 @@ function App() {
       </main>
 
       <FabMenu
-        transactionForm={<AddTransactionForm addTransaction={addTransaction} categories={categories}/>}
-        billForm={<AddBillForm addBill={addBill}/>}
+        transactionForm={(onSubmitted) => (<AddTransactionForm addTransaction={addTransaction} categories={categories} onSubmitted={onSubmitted}/>)}
+        billForm={(onSubmitted) => (<AddBillForm addBill={addBill} onSubmitted={onSubmitted}/>)}
       />
     </div>
 )
