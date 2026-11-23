@@ -18,6 +18,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <title>MoneyLance</title>
+
+    <!-- Aplica o tema salvo antes da primeira pintura (evita "piscar" claro no modo escuro) -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("moneylance-theme");
+          if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+          var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", dark ? "#0B1726" : "#EAF4FC");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

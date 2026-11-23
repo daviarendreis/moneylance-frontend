@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 10;
-  background: linear-gradient(180deg, rgba(14, 34, 56, 0.1) 0%, rgba(14, 34, 56, 0.32) 100%);
+  background: var(--color-backdrop);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   animation: fade 180ms ease-out;
@@ -84,7 +84,7 @@
   border-radius: 22px;
   color: var(--color-ink);
   background: var(--color-surface);
-  box-shadow: 0 10px 28px rgba(14, 34, 56, 0.16), 0 1px 3px rgba(14, 34, 56, 0.08);
+  box-shadow: var(--shadow-float);
   transition: transform 120ms ease;
 }
 
@@ -94,11 +94,11 @@
 
 @media (hover: hover) {
   .option:hover {
-    box-shadow: 0 12px 32px rgba(14, 34, 56, 0.2), 0 1px 3px rgba(14, 34, 56, 0.08);
+    box-shadow: var(--shadow-float-hover);
   }
 
   .closeButton:hover {
-    background: rgba(14, 34, 56, 0.09);
+    background: var(--color-hover-fill);
   }
 
   .fab:hover {
@@ -114,8 +114,8 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-control);
-  color: #ffffff;
-  background: var(--color-ink);
+  color: var(--color-on-accent);
+  background: var(--color-tile);
 }
 
 .optionText {
@@ -149,13 +149,13 @@
   gap: 20px;
   padding: 10px 20px calc(env(safe-area-inset-bottom) + 32px);
   border-radius: 32px 32px 0 0;
-  background: linear-gradient(170deg, rgba(255, 255, 255, 0.92) 0%, rgba(246, 250, 254, 0.82) 60%, rgba(255, 255, 255, 0.9) 100%);
-  border-top: 1px solid #ffffff;
+  background: var(--color-sheet-bg);
+  border-top: 1px solid var(--color-sheet-edge);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
   backdrop-filter: blur(30px) saturate(180%);
   box-shadow:
-    inset 0 1.5px 0 #ffffff,
-    0 -12px 40px rgba(14, 34, 56, 0.18);
+    inset 0 1.5px 0 var(--color-sheet-edge),
+    var(--shadow-sheet);
   animation: slide 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -164,7 +164,7 @@
   width: 40px;
   height: 5px;
   border-radius: var(--radius-pill);
-  background: rgba(14, 34, 56, 0.18);
+  background: var(--color-handle);
 }
 
 .sheetHeader {

@@ -38,7 +38,7 @@
 .brand svg {
   flex-shrink: 0;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(14, 34, 56, 0.18);
+  box-shadow: var(--shadow-mark);
 }
 
 .brandName {
@@ -47,10 +47,18 @@
   letter-spacing: -0.03em;
 }
 
+.headerEnd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .month {
   font-size: var(--text-label);
   font-weight: 600;
   color: var(--color-muted);
+  /* getMonth() devolve "novembro"; a inicial maiúscula é só visual */
+  text-transform: capitalize;
 }
 
 /* Conteúdo */
