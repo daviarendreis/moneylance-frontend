@@ -7,9 +7,42 @@
  * Quando nada mais importar este arquivo, ele pode ser apagado.
  */
 
-// Gráfico do saldo: linha fixa (coordenadas SVG, 322 × 150). Trocar por: pontos do saldo acumulado por data.
-export const PLACEHOLDER_CHART_LINE =
-    "M0 112 C 25 112, 30 30, 60 30 C 85 30, 90 62, 120 66 C 150 70, 160 72, 185 74 C 210 76, 215 40, 245 36 C 270 33, 280 48, 300 50 L 316 50"
+import type { BalancePoint } from "../components/BalanceChart"
 
-// Gráfico do saldo: rótulos do eixo de datas. Trocar por: datas reais do período.
-export const PLACEHOLDER_CHART_LABELS = ["01/11", "10/11", "20/11", "Hoje"]
+/*
+ * Gráfico "Últimos 30 dias". Trocar por: getBalanceHistory(transactions).
+ * Calculado à mão a partir dos mocks, com "hoje" = 23/11/2026:
+ * é o GABARITO — com os mocks atuais, a função deve devolver exatamente esta lista.
+ */
+export const PLACEHOLDER_BALANCE_HISTORY: BalancePoint[] = [
+    { date: "2026-10-25", balance: 0.00 },
+    { date: "2026-10-26", balance: 0.00 },
+    { date: "2026-10-27", balance: 0.00 },
+    { date: "2026-10-28", balance: 0.00 },
+    { date: "2026-10-29", balance: 0.00 },
+    { date: "2026-10-30", balance: 0.00 },
+    { date: "2026-10-31", balance: 0.00 },
+    { date: "2026-11-01", balance: 0.00 },
+    { date: "2026-11-02", balance: 0.00 },
+    { date: "2026-11-03", balance: 0.00 },
+    { date: "2026-11-04", balance: 0.00 },
+    { date: "2026-11-05", balance: 5500.00 },
+    { date: "2026-11-06", balance: 5500.00 },
+    { date: "2026-11-07", balance: 5500.00 },
+    { date: "2026-11-08", balance: 4854.10 },
+    { date: "2026-11-09", balance: 4854.10 },
+    { date: "2026-11-10", balance: 3204.10 },
+    { date: "2026-11-11", balance: 3204.10 },
+    { date: "2026-11-12", balance: 5004.10 },
+    { date: "2026-11-13", balance: 5004.10 },
+    { date: "2026-11-14", balance: 5004.10 },
+    { date: "2026-11-15", balance: 4948.20 },
+    { date: "2026-11-16", balance: 4948.20 },
+    { date: "2026-11-17", balance: 4948.20 },
+    { date: "2026-11-18", balance: 4948.20 },
+    { date: "2026-11-19", balance: 4948.20 },
+    { date: "2026-11-20", balance: 4948.20 },
+    { date: "2026-11-21", balance: 4923.70 },
+    { date: "2026-11-22", balance: 4923.70 },
+    { date: "2026-11-23", balance: 4923.70 },
+]

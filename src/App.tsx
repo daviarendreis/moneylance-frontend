@@ -1,6 +1,6 @@
+import { lazy, Suspense } from "react"
 import AddBillForm from "./components/AddBillForm"
 import AddTransactionForm from "./components/AddTransactionForm"
-import BalanceChart from "./components/BalanceChart"
 import BillsList from "./components/BillsList"
 import ExpensesSummary from "./components/ExpensesSummary"
 import NextBillCard from "./components/NextBillCard"
@@ -17,6 +17,9 @@ import getBalance from "./logic/getBalance"
 import styles from "./App.module.css"
 import getBillsTallied from "./logic/getBillsTallied"
 import getMonth from "./logic/getMonth"
+
+// O gráfico (Recharts) é carregado à parte: o app abre sem esperar a biblioteca
+const BalanceChart = lazy(() => import("./components/BalanceChart"))
 
 function App() {
   const { bills, error: billError, loading: billLoading, markAsPaid, addBill } = useBills()
@@ -60,8 +63,10 @@ function App() {
           <TransactionsList transactions={transactions} categories={categories}/>
         </SectionCard>
 
-        <SectionCard title="Saldo no mês" subtitle="Como seu dinheiro variou no mês">
-          <BalanceChart />
+        <SectionCard title="Últimos 30 dias" subtitle="Seu saldo dia a dia">
+          <Suspense fallback={<div className={styles.chartFallback} aria-hidden="true" />}>
+            <BalanceChart />
+          </Suspense>
         </SectionCard>
 
         <SectionCard title="Gastos por categoria">

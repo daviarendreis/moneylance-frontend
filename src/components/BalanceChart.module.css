@@ -1,37 +1,83 @@
 .chart {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 10px;
+  gap: 14px;
+  padding-top: 8px;
 }
 
-/* O gráfico encosta nas laterais do card: este bloco lê como figura, não como mais uma lista */
-.svg {
-  display: block;
+/* A cor da linha vem daqui (currentColor no SVG), então acompanha o tema */
+.plot {
+  margin: 0 -6px;
   color: var(--color-income);
-  width: calc(100% + 36px);
-  margin: 0 -18px;
-  height: 150px;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.grid {
-  stroke: var(--color-ink);
-  stroke-opacity: 0.06;
-}
-
-.line {
-  fill: none;
-  stroke: var(--color-income);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.labels {
-  display: flex;
-  font-variant-numeric: tabular-nums;
-  justify-content: space-between;
+/* Textos do eixo */
+.plot :global(.recharts-cartesian-axis-tick-value) {
+  fill: var(--color-muted);
   font-size: 13px;
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sem contorno de foco desenhado pelo navegador dentro do SVG */
+.plot :global(.recharts-surface:focus),
+.plot :global(.recharts-wrapper:focus) {
+  outline: none;
+}
+
+/* Balão ao tocar num ponto */
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: var(--color-toast-text);
+  background: var(--color-toast-bg);
+  box-shadow: var(--shadow-float);
+}
+
+.tooltipDate {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.tooltipValue {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* Maior e menor saldo do período */
+.range {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+}
+
+.range div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.range dt {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.range dd {
+  margin: 0;
+  font-size: var(--text-body);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.empty {
+  padding: 8px 0 4px;
+  font-size: var(--text-body);
   color: var(--color-muted);
 }
