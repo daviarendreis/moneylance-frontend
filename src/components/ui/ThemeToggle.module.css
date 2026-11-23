@@ -1,0 +1,22 @@
+.toggle {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-ink);
+  background: var(--color-neutral-fill);
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.toggle:active {
+  transform: scale(0.92);
+}
+
+@media (hover: hover) {
+  .toggle:hover {
+    background: var(--color-hover-fill);
+  }
+}

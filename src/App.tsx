@@ -8,6 +8,7 @@ import TransactionsList from "./components/TransactionsList"
 import AppMark from "./components/ui/AppMark"
 import FabMenu from "./components/ui/FabMenu"
 import SectionCard from "./components/ui/SectionCard"
+import ThemeToggle from "./components/ui/ThemeToggle"
 import useBills from "./hooks/useBills"
 import useCategories from "./hooks/useCategories"
 import useTransactions from "./hooks/useTransactions"
@@ -34,7 +35,10 @@ function App() {
           <AppMark size={32} />
           <h1 className={styles.brandName}>MoneyLance</h1>
         </div>
-        <span className={styles.month}>{getMonth()}</span>
+        <div className={styles.headerEnd}>
+          <span className={styles.month}>{getMonth()}</span>
+          <ThemeToggle />
+        </div>
       </header>
 
       <main className={styles.main}>

@@ -67,6 +67,23 @@ export function CalendarIcon({ size = 22 }: IconProps) {
     )
 }
 
+export function SunIcon({ size = 22 }: IconProps) {
+    return (
+        <svg width={size} height={size} viewBox="0 0 22 22" aria-hidden="true">
+            <circle cx="11" cy="11" r="4" {...stroke} />
+            <path d="M11 2.5V4.5M11 17.5V19.5M2.5 11H4.5M17.5 11H19.5M5 5L6.4 6.4M15.6 15.6L17 17M5 17L6.4 15.6M15.6 6.4L17 5" {...stroke} />
+        </svg>
+    )
+}
+
+export function MoonIcon({ size = 22 }: IconProps) {
+    return (
+        <svg width={size} height={size} viewBox="0 0 22 22" aria-hidden="true">
+            <path d="M18 13.2A7.5 7.5 0 0 1 8.8 4 7.5 7.5 0 1 0 18 13.2Z" {...stroke} />
+        </svg>
+    )
+}
+
 export function ChevronDownIcon({ size = 18 }: IconProps) {
     return (
         <svg width={size} height={size} viewBox="0 0 18 18" aria-hidden="true">

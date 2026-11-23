@@ -28,7 +28,8 @@ body {
   font-family: var(--font-sans);
   color: var(--color-ink);
   position: relative;
-  background: #f5f8fb;
+  background: var(--color-bg);
+  transition: background-color 200ms ease, color 200ms ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
