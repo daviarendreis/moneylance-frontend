@@ -26,7 +26,13 @@ function App() {
   const { paid, unpaid } = getBillsTallied(bills)
 
   if (billLoading || catLoading || trLoading) return <p className={styles.status}>Carregando…</p>
-  if (billError || catError || trError) return <p className={styles.status}>Não foi possível carregar seus dados. Recarregue a página.</p>
+  if (billError || catError || trError) return (
+    <div className={styles.status}>
+      <p>Não foi possível carregar seus dados.</p>
+      {/* No app instalado não há botão de recarregar do navegador: este faz o papel dele */}
+      <button type="button" className={styles.retry} onClick={() => window.location.reload()}>Tentar de novo</button>
+    </div>
+  )
 
   return (
     <div className={styles.app}>

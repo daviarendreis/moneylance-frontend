@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react"
+import { useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react"
 import { CalendarIcon, CheckIcon, CloseIcon, PlusIcon, SwapIcon } from "./icons"
 import styles from "./FabMenu.module.css"
 
@@ -8,6 +8,8 @@ interface FabMenuProps {
 }
 
 type View = "closed" | "menu" | "transaction" | "bill"
+
+const FOCUSABLE = 'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
 
 export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
     const [view, setView] = useState<View>("closed")
@@ -38,10 +40,70 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
         return () => window.clearTimeout(timer)
     }, [toast])
 
+    // ---------- Proteção da folha (só interface) ----------
+    const sheetRef = useRef<HTMLDivElement>(null)
+    const fabRef = useRef<HTMLButtonElement>(null)
+    const [nudge, setNudge] = useState(false)
+
+    // Há algo digitado no formulário aberto? (lê os campos na tela; não muda os formulários)
+    function isFormDirty() {
+        const fields = sheetRef.current?.querySelectorAll<HTMLInputElement | HTMLSelectElement>("input, select") ?? []
+        return Array.from(fields).some((field) => {
+            if (field instanceof HTMLInputElement) {
+                if (field.type === "radio") return false
+                if (field.type === "checkbox") return field.checked
+            }
+            return field.value.trim() !== ""
+        })
+    }
+
+    // Tocar fora: fecha, a menos que haja algo digitado — aí a folha só dá um "tranco" (fecha pelo ×)
+    function onBackdropClick() {
+        if (isSheet && isFormDirty()) {
+            setNudge(true)
+            return
+        }
+        setView("closed")
+    }
+
+    // Esc fecha o menu ou a folha
+    useEffect(() => {
+        if (view === "closed") return
+        const onKey = (event: globalThis.KeyboardEvent) => {
+            if (event.key === "Escape") setView("closed")
+        }
+        window.addEventListener("keydown", onKey)
+        return () => window.removeEventListener("keydown", onKey)
+    }, [view])
+
+    // Ao abrir a folha, o foco vai para ela; ao fechar, volta para o "+"
+    const wasSheet = useRef(false)
+    useEffect(() => {
+        if (isSheet) sheetRef.current?.focus()
+        else if (wasSheet.current) fabRef.current?.focus()
+        wasSheet.current = isSheet
+    }, [isSheet])
+
+    // Tab circula só dentro da folha
+    function trapFocus(event: KeyboardEvent<HTMLDivElement>) {
+        if (event.key !== "Tab" || !sheetRef.current) return
+        const items = Array.from(sheetRef.current.querySelectorAll<HTMLElement>(FOCUSABLE))
+        if (items.length === 0) return
+        const first = items[0]
+        const last = items[items.length - 1]
+        if (event.shiftKey && (document.activeElement === first || document.activeElement === sheetRef.current)) {
+            event.preventDefault()
+            last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault()
+            first.focus()
+        }
+    }
+
     return (
         <>
             {view !== "closed" ? (
-                <div className={styles.backdrop} onClick={() => setView("closed")} aria-hidden="true" />
+                <div className={styles.backdrop} onClick={onBackdropClick} aria-hidden="true" />
             ) : null}
 
             {view === "menu" ? (
@@ -64,7 +126,16 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
             ) : null}
 
             {isSheet ? (
-                <div className={styles.sheet} role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+                <div
+                    ref={sheetRef}
+                    className={`${styles.sheet} ${nudge ? styles.nudge : ""}`}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="sheet-title"
+                    tabIndex={-1}
+                    onKeyDown={trapFocus}
+                    onAnimationEnd={() => setNudge(false)}
+                >
                     <div className={styles.handle} />
                     <div className={styles.sheetHeader}>
                         <h2 id="sheet-title" className={styles.sheetTitle}>{sheetTitle}</h2>
@@ -76,6 +147,7 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
                 </div>
             ) : (
                 <button
+                    ref={fabRef}
                     type="button"
                     className={`${styles.fab} ${view === "menu" ? styles.fabOpen : ""} ${compact && view === "closed" ? styles.fabCompact : ""} glass glass--orange`}
                     onClick={() => setView(view === "menu" ? "closed" : "menu")}

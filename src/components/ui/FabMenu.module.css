@@ -249,3 +249,22 @@
 @keyframes toastOut {
   to { opacity: 0; transform: translateY(6px); }
 }
+
+/* A folha não fecha ao tocar fora quando há algo digitado: dá um "tranco" para indicar o × */
+.sheet:focus {
+  outline: none;
+}
+
+/* Mantém "slide" na lista para a animação de abrir não reiniciar quando o tranco termina */
+.nudge {
+  animation:
+    slide 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    nudge 320ms cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+@keyframes nudge {
+  0% { transform: translateY(0); }
+  35% { transform: translateY(-10px); }
+  70% { transform: translateY(3px); }
+  100% { transform: translateY(0); }
+}
