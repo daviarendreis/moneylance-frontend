@@ -115,3 +115,11 @@
   letter-spacing: -0.025em;
   white-space: nowrap;
 }
+
+/* Espaço reservado do gráfico enquanto ele carrega (mesma altura, a tela não "pula") */
+.chartFallback {
+  height: 232px;
+  margin-top: 8px;
+  border-radius: 12px;
+  background: var(--color-neutral-fill);
+}
