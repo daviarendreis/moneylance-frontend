@@ -60,6 +60,22 @@
   transform: rotate(45deg);
 }
 
+/* Topo da página: pílula "+ Adicionar" */
+.fabExtended {
+  width: auto;
+  height: 60px;
+  gap: 8px;
+  padding: 0 24px 0 18px;
+  border-radius: var(--radius-pill);
+}
+
+.fabLabel {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
 /* Opções do menu */
 .options {
   position: fixed;
