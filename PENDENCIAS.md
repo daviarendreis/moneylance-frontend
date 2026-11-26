@@ -37,7 +37,7 @@ Todos os dados fixos ficam em [`src/placeholders/layoutPlaceholders.ts`](src/pla
   - Precisa de: contar as contas pagas e as a pagar.
   - Onde troca: o `subtitle` do card "Contas" em `App.tsx`.
 
-- [ ] **7. Gráfico do saldo** (componente pronto com Recharts; falta só a função)
+- [x] **7. Gráfico do saldo** (componente pronto com Recharts; falta só a função)
   - Hoje mostra: `PLACEHOLDER_BALANCE_HISTORY`, uma lista fixa de 30 dias calculada à mão a partir dos mocks. É o **gabarito**: com os mocks atuais, a função deve devolver exatamente essa lista.
   - Precisa de: `getBalanceHistory(transactions)` → lista de `{ date: "AAAA-MM-DD", balance: number }` (tipo `BalancePoint`, exportado de `components/BalanceChart.tsx`).
   - Regras decididas: últimos 30 dias (30 itens, do mais antigo para hoje); o primeiro dia parte do saldo acumulado até o dia anterior à janela; dias sem transação repetem o saldo do dia anterior; o último item = `getBalance` de hoje.
