@@ -74,7 +74,7 @@ function App() {
           <ExpensesSummary transactions={transactions} categories={categories}/>
         </SectionCard>
 
-        <SectionCard title="Contas" subtitle={`${unpaid} a pagar · ${paid} pagas`}>
+        <SectionCard title="Contas" subtitle={`${unpaid} a pagar · ${paid} ${paid === 1 ? "paga" : "pagas"}`}>
           <BillsList bills={bills} markAsPaid={markAsPaid}/>
         </SectionCard>
       </main>
