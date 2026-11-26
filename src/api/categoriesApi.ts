@@ -26,6 +26,36 @@ const mockCategories: Category[] = [
         name: "Conforto",
         icon: null,
         isDefault: true
+    }, {
+        id: "cat-moradia",
+        name: "Moradia",
+        icon: null,
+        isDefault: true
+    }, {
+        id: "cat-contas-casa",
+        name: "Contas da casa",
+        icon: null,
+        isDefault: true
+    }, {
+        id: "cat-alimentacao-fora",
+        name: "Alimentação fora",
+        icon: null,
+        isDefault: true
+    }, {
+        id: "cat-saude",
+        name: "Saúde",
+        icon: null,
+        isDefault: true
+    }, {
+        id: "cat-lazer",
+        name: "Lazer",
+        icon: null,
+        isDefault: true
+    }, {
+        id: "cat-outros",
+        name: "Outros",
+        icon: null,
+        isDefault: true
     }
 ]
 
