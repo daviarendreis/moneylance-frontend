@@ -17,6 +17,7 @@ import getBalance from "./logic/getBalance"
 import styles from "./App.module.css"
 import getBillsTallied from "./logic/getBillsTallied"
 import getMonth from "./logic/getMonth"
+import getBalanceHistory from "./logic/getBalanceHistory"
 
 // O gráfico (Recharts) é carregado à parte: o app abre sem esperar a biblioteca
 const BalanceChart = lazy(() => import("./components/BalanceChart"))
@@ -65,7 +66,7 @@ function App() {
 
         <SectionCard title="Últimos 30 dias" subtitle="Seu saldo dia a dia">
           <Suspense fallback={<div className={styles.chartFallback} aria-hidden="true" />}>
-            <BalanceChart />
+            <BalanceChart history={getBalanceHistory(transactions)}/>
           </Suspense>
         </SectionCard>
 

@@ -2,18 +2,11 @@ import { useId } from "react";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis, type TooltipContentProps } from "recharts";
 import formatCurrency from "../logic/formatCurrency";
 import formatDate from "../logic/formatDate";
-import { PLACEHOLDER_BALANCE_HISTORY } from "../placeholders/layoutPlaceholders";
 import styles from "./BalanceChart.module.css";
-
-// Um ponto do gráfico: o saldo no fim daquele dia (formato que getBalanceHistory deve devolver)
-export interface BalancePoint {
-    date: string      // "AAAA-MM-DD"
-    balance: number
-}
+import type { BalancePoint } from "../types/balancePoint";
 
 interface BalanceChartProps {
-    // Dado fixo até existir getBalanceHistory (ver PENDENCIAS.md, item 7)
-    history?: BalancePoint[]
+    history: BalancePoint[]
 }
 
 // Balão ao tocar num ponto: "23/11 · R$ 4.923,70"
@@ -28,7 +21,7 @@ function ChartTooltip({ active, payload }: TooltipContentProps) {
     )
 }
 
-export default function BalanceChart({ history = PLACEHOLDER_BALANCE_HISTORY }: BalanceChartProps) {
+export default function BalanceChart({ history }: BalanceChartProps) {
     const gradientId = useId()
 
     if (history.length === 0) return <p className={styles.empty}>Ainda não há movimentações nos últimos 30 dias.</p>
