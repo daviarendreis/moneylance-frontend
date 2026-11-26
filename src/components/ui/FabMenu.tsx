@@ -149,12 +149,14 @@ export default function FabMenu({ transactionForm, billForm }: FabMenuProps) {
                 <button
                     ref={fabRef}
                     type="button"
-                    className={`${styles.fab} ${view === "menu" ? styles.fabOpen : ""} ${compact && view === "closed" ? styles.fabCompact : ""} glass glass--orange`}
+                    className={`${styles.fab} ${view === "menu" ? styles.fabOpen : ""} ${compact && view === "closed" ? styles.fabCompact : ""} ${!compact && view === "closed" ? styles.fabExtended : ""} glass glass--orange`}
                     onClick={() => setView(view === "menu" ? "closed" : "menu")}
                     aria-label={view === "menu" ? "Fechar menu" : "Adicionar"}
                     aria-expanded={view === "menu"}
                 >
                     <PlusIcon />
+                    {/* No topo da página o botão diz o que faz; ao rolar, volta a ser só o "+" */}
+                    {!compact && view === "closed" ? <span className={styles.fabLabel}>Adicionar</span> : null}
                 </button>
             )}
 
