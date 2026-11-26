@@ -4,9 +4,9 @@ import { ArrowDownIcon, ArrowUpIcon } from "./ui/icons";
 import styles from "./TransactionsList.module.css";
 import findCategory from "../logic/findCategory";
 import type { Category } from "../types/category";
-import formatDate from "../logic/formatDate";
 import { useState } from "react";
 import { sortTransactions } from "../logic/sortByDate";
+import formatTimestamp from "../logic/formatTimestamp";
 
 interface TransactionsListProps {
     transactions: Transaction[]
@@ -31,7 +31,7 @@ export default function TransactionsList ({ transactions, categories }: Transact
                         </span>
                         <span className={styles.text}>
                             <span className={styles.description}>{tr.description}</span>
-                            <span className={styles.meta}>{findCategory(tr.categoryId, categories)} · {formatDate(tr.createdAt)}</span>
+                            <span className={styles.meta}>{findCategory(tr.categoryId, categories)} · {formatTimestamp(tr.createdAt)}</span>
                         </span>
                         <span className={`${styles.amount} tabular`}>
                             {tr.type === "income" ? "+" : "−"} {formatCurrency(tr.amount)}
