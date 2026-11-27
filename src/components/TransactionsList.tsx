@@ -2,9 +2,7 @@ import formatCurrency from "../logic/formatCurrency";
 import type { Transaction } from "../types/transaction";
 import { ArrowDownIcon, ArrowUpIcon } from "./ui/icons";
 import { CategoryIcon } from "./ui/categoryIcons";
-import isNeutralIcon from "../logic/isNeutralIcon";
 import styles from "./TransactionsList.module.css";
-import findCategory from "../logic/findCategory";
 import type { Category } from "../types/category";
 import { useState } from "react";
 import { sortTransactions } from "../logic/sortByDate";
@@ -26,24 +24,26 @@ export default function TransactionsList ({ transactions, categories }: Transact
         {transactions.length > 0 ? (
             <>
             <ul className={styles.list}>
-                {visible.map((tr) => (
+                {visible.map((tr) => {
+                    const category = categories.find(cat => cat.id === tr.categoryId)
+                    return(
                     <li key={tr.id} className={`${styles.row} ${tr.type === "income" ? styles.income : styles.expense}`}>
-                        <span className={`${styles.icon} ${isNeutralIcon(categories.find(cat => cat.id === tr.categoryId)?.icon) ? styles.neutral : ""}`}>
+                        <span className={`${styles.icon} ${category?.type === "both" ? styles.neutral : ""}`}>
                             <CategoryIcon
-                                icon={categories.find(cat => cat.id === tr.categoryId)?.icon}
+                                icon={category?.icon}
                                 size={22}
                                 fallback={tr.type === "income" ? <ArrowUpIcon size={22} /> : <ArrowDownIcon size={22} />}
                             />
                         </span>
                         <span className={styles.text}>
                             <span className={styles.description}>{tr.description}</span>
-                            <span className={styles.meta}>{findCategory(tr.categoryId, categories)} · {formatTimestamp(tr.createdAt)}</span>
+                            <span className={styles.meta}>{category?.name} · {formatTimestamp(tr.createdAt)}</span>
                         </span>
                         <span className={`${styles.amount} tabular`}>
                             {tr.type === "income" ? "+" : "−"} {formatCurrency(tr.amount)}
                         </span>
                     </li>
-                ))}
+                )})}
             </ul>
             
             {transactions.length > 5 && <button type="button" 

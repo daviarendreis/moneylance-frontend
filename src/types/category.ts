@@ -1,6 +1,9 @@
+import type { CategoriesType } from "./categoriesType"
+
 export interface Category {
     id: string
     name: string
-    icon:string | null
+    icon: string
     isDefault: boolean
+    type: CategoriesType
 }

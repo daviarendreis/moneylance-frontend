@@ -92,7 +92,7 @@ export default function AddTransactionForm ({ addTransaction, categories, onSubm
                 required/>
             </div>
 
-            <CategorySelect categories={categories} value={categoryId} onChange={setCategoryId} />
+            <CategorySelect categories={categories} value={categoryId} onChange={setCategoryId} transactionType={type} />
 
             <button type="submit" className={forms.submit}>Adicionar</button>
         </form>
