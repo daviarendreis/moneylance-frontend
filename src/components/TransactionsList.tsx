@@ -1,6 +1,7 @@
 import formatCurrency from "../logic/formatCurrency";
 import type { Transaction } from "../types/transaction";
 import { ArrowDownIcon, ArrowUpIcon } from "./ui/icons";
+import { CategoryIcon } from "./ui/categoryIcons";
 import styles from "./TransactionsList.module.css";
 import findCategory from "../logic/findCategory";
 import type { Category } from "../types/category";
@@ -27,7 +28,11 @@ export default function TransactionsList ({ transactions, categories }: Transact
                 {visible.map((tr) => (
                     <li key={tr.id} className={`${styles.row} ${tr.type === "income" ? styles.income : styles.expense}`}>
                         <span className={styles.icon}>
-                            {tr.type === "income" ? <ArrowUpIcon size={22} /> : <ArrowDownIcon size={22} />}
+                            <CategoryIcon
+                                icon={categories.find(cat => cat.id === tr.categoryId)?.icon}
+                                size={22}
+                                fallback={tr.type === "income" ? <ArrowUpIcon size={22} /> : <ArrowDownIcon size={22} />}
+                            />
                         </span>
                         <span className={styles.text}>
                             <span className={styles.description}>{tr.description}</span>

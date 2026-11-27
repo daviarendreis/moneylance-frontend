@@ -4,27 +4,57 @@ const mockCategories: Category[] = [
     {
         id: "cat-mercado",
         name: "Mercado",
-        icon: null,
+        icon: "cart",
         isDefault: true
     }, {
         id: "cat-salario",
         name: "Salário",
-        icon: null,
+        icon: "wallet",
         isDefault: true
     }, {
         id: "cat-venda",
         name: "Venda",
-        icon: null,
+        icon: "tag",
         isDefault: true
     }, {
         id: "cat-transporte",
         name: "Transporte",
-        icon: null,
+        icon: "bus",
         isDefault: true
     }, {
         id: "cat-conforto",
         name: "Conforto",
-        icon: null,
+        icon: "sofa",
+        isDefault: true
+    }, {
+        id: "cat-moradia",
+        name: "Moradia",
+        icon: "house",
+        isDefault: true
+    }, {
+        id: "cat-contas-casa",
+        name: "Contas da casa",
+        icon: "bolt",
+        isDefault: true
+    }, {
+        id: "cat-alimentacao-fora",
+        name: "Alimentação fora",
+        icon: "utensils",
+        isDefault: true
+    }, {
+        id: "cat-saude",
+        name: "Saúde",
+        icon: "health",
+        isDefault: true
+    }, {
+        id: "cat-lazer",
+        name: "Lazer",
+        icon: "ticket",
+        isDefault: true
+    }, {
+        id: "cat-outros",
+        name: "Outros",
+        icon: "dots",
         isDefault: true
     }
 ]
