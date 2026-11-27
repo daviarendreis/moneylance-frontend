@@ -36,6 +36,12 @@ export default function AddTransactionForm ({ addTransaction, categories, onSubm
         onSubmitted()
     }
 
+    function changeType(next: TransactionsType) {
+        setType(next)
+        const current = categories.find(cat => cat.id === categoryId)
+        if (current && current.type !== "both" && current.type !== next) setCategoryId("")
+    }
+
 
     return (
         <form onSubmit={handleSubmit} className={forms.form}>
@@ -47,7 +53,7 @@ export default function AddTransactionForm ({ addTransaction, categories, onSubm
                         name="type"
                         value="income"
                         checked={type === "income"}
-                        onChange={(e) => setType(e.target.value as TransactionsType)}
+                        onChange={(e) => changeType(e.target.value as TransactionsType)}
                         required/>
                         <ArrowUpIcon size={18}/> Entrada
                     </label>
@@ -56,7 +62,7 @@ export default function AddTransactionForm ({ addTransaction, categories, onSubm
                         name="type"
                         value="expense"
                         checked={type === "expense"}
-                        onChange={(e) => setType(e.target.value as TransactionsType)}/>
+                        onChange={(e) => changeType(e.target.value as TransactionsType)}/>
                         <ArrowDownIcon size={18}/> Saída
                     </label>
                 </div>
