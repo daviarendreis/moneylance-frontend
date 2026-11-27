@@ -2,6 +2,7 @@ import formatCurrency from "../logic/formatCurrency";
 import type { Transaction } from "../types/transaction";
 import { ArrowDownIcon, ArrowUpIcon } from "./ui/icons";
 import { CategoryIcon } from "./ui/categoryIcons";
+import isNeutralIcon from "../logic/isNeutralIcon";
 import styles from "./TransactionsList.module.css";
 import findCategory from "../logic/findCategory";
 import type { Category } from "../types/category";
@@ -27,7 +28,7 @@ export default function TransactionsList ({ transactions, categories }: Transact
             <ul className={styles.list}>
                 {visible.map((tr) => (
                     <li key={tr.id} className={`${styles.row} ${tr.type === "income" ? styles.income : styles.expense}`}>
-                        <span className={styles.icon}>
+                        <span className={`${styles.icon} ${isNeutralIcon(categories.find(cat => cat.id === tr.categoryId)?.icon) ? styles.neutral : ""}`}>
                             <CategoryIcon
                                 icon={categories.find(cat => cat.id === tr.categoryId)?.icon}
                                 size={22}

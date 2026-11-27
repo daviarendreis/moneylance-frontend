@@ -66,6 +66,11 @@
   color: var(--color-expense);
 }
 
+/* "Outros" vale para entrada e saída: ícone neutro, sem azul nem laranja */
+.row .icon.neutral {
+  color: var(--color-muted);
+}
+
 .expense .amount {
   color: var(--color-expense-text);
 }
